@@ -1,0 +1,134 @@
+:root {
+  --bg: #F6F2F8;
+  --muted: #5C4B5E;
+  --accent: #B282B9;
+  --accent-2: #D3D1E8;
+  --card: #F1EFF7;
+  --white: #fff;
+  --radius: 18px;
+  --container: 1200px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-script: "Actonia", "Playfair Display", serif;
+}
+
+/* Self-hosted font */
+@font-face {
+  font-family: 'Actonia';
+  src: url('../assets/fonts/Actonia.woff2') format('woff2'),
+       url('../assets/fonts/Actonia.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset & globals */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; font-family: var(--font-sans); background: var(--bg); color: var(--muted); line-height: 1.5; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+
+/* Header (reuse from homepage) */
+.site-header {
+  background: #C8C5E2;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  height: 122px;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; }
+.logo { height: 135px; width: 180px; }
+.main-nav a { margin-left: 0; color: var(--muted); text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; }
+.main-nav a + a { margin-left: 33px; }
+.main-nav a:hover { color: white; }
+.main-nav img { height: 20px; width: auto; display: inline-block; vertical-align: middle; }
+
+/* Products Section */
+.products { padding: 60px 0; text-align: center; background: #D3D1E8; }
+.products h2.section-title { font-family: var(--font-script); font-size: 47px; margin-bottom: 20px; font-style: italic; color: var(--muted); }
+
+/* Category Pills */
+.category-pill {
+  width: 528px;
+  height: 37px;
+  margin: 20px auto;
+  background: white;
+  padding: 10px;
+  border-radius: 50px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.category-pill .cat {
+  background: transparent;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+.category-pill .active { font-weight: bold; }
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  margin-top: 40px;
+  justify-items: center;
+}
+.card {
+  background: var(--white);
+  width: 260px;
+  text-align: left;
+  box-shadow: 0 0 0 6px var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.card-media { display: flex; justify-content: center; padding-top: 10px; }
+.card-media img { width: 232px; height: 242px; object-fit: cover; }
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px 10px 20px;
+  align-items: center;
+}
+.card-title { font-weight: bold; font-size: 17px; }
+.price { font-weight: bold; color: var(--muted); }
+.btn.add {
+  display: flex;
+  margin: 0 auto 20px auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 10px 0;
+  width: 152px;
+  height: 34px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.pagination .btn.ghost {
+  background: var(--white);
+  border: none;
+  border-radius: 25px;
+  padding: 8px 15px;
+  color: var(--accent);
+  font-weight: bold;
+  cursor: pointer;
+}
+.pagination .btn.ghost:hover { background: var(--accent-2); color: var(--white); }
+
+/* Responsive Breakpoints */
+@media (max-width: 1000px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .category-pill { flex-direction: column; gap: 10px; height: auto; }
+}
