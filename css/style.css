@@ -1,0 +1,398 @@
+:root{
+  --bg:#F6F2F8;
+  --muted:#5C4B5E;
+  --accent:#B282B9;
+  --accent-2:#D3D1E8;
+  --card:#F1EFF7;
+  --white:#fff;
+  --radius:18px;
+  --container:1200px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-script: "Actonia", "Playfair Display", serif;
+}
+
+/* Self-hosted font (placed in assets/fonts/) */
+@font-face {
+  font-family: 'Actonia';
+  src: url('../assets/fonts/Actonia.woff2') format('woff2'),
+       url('../assets/fonts/Actonia.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* container */
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* header */
+.site-header{
+  background:#C8C5E2;
+  border-bottom:1px solid rgba(0,0,0,0.03);
+  height: 122px;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom: 20px;
+}
+.logo{height: 135px;width: 180px;;}
+
+/* nav */
+.main-nav a{
+  margin-left:0;
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:500;
+  display:inline-flex;
+  align-items:center;
+  height:100%;
+  font-weight: bold;
+}
+.main-nav a + a{
+  margin-left:33px;
+}
+.main-nav a:hover{
+  color:white;
+}
+
+.main-nav img{height:20px;width:auto;display:inline-block;vertical-align:middle}
+
+/* --- HERO SECTION --- */
+.hero {
+  position: relative;
+  padding: 60px 0 100px; /* Reduced top padding slightly */
+  background: #E4DEF0;   /* Matches original light background */
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr; /* Adjusted ratio */
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Typography & Text Area --- */
+.hero-left {
+  padding-left: 20px;
+  max-width: 480px;
+}
+
+.hero-title {
+  margin: 0 0 24px 0;
+  color: #5C4B5E;
+  line-height: 1.1;
+}
+
+.hero-title .script {
+  font-family: var(--font-script);
+  font-size: 90px;
+  font-weight: bold;
+  color: #5C4B5E;
+  position: relative;
+  display: inline-block;
+}
+
+.shine-lines {
+  position: absolute;
+  right: -35px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.hero-title .big {
+  font-family: var(--font-sans);
+  font-weight: bold;
+  font-size: 56px;
+  color: #5C4B5E;
+  display: block;
+  margin-top: -15px; /* Pulls "Your Day" closer to "Cake" */
+}
+
+.big {
+  margin-left: 15px;
+}
+
+/* The "Your" Highlight Effect */
+.hero-title .highlight {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.hero-title .highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: -2px;
+  right: -2px;
+  height: 18px; /* Height of the highlighter strip */
+  width: 250px;
+  background: #D9CDE5; /* The purple highlight color */
+  z-index: -1;
+  opacity: 1;
+  border-radius: 4px;
+}
+
+/* --- Purple Content Box --- */
+.hero-content-box {
+  background: rgba(225,209,231, 1); /* Semi-transparent purple */
+  padding: 30px;
+  border-radius: 24px;
+  margin-top: 50px;
+  max-width: 420px;
+  width: 346px;
+  height: 251px;
+  z-index: -1;
+  text-align: center;
+}
+
+.hero-copy {
+  margin: 0 0 24px 0;
+  color: #916198;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: bold;
+  z-index: -1;
+}
+
+.hero-btn {
+  text-align: center;
+}
+
+.btn.white-pill {
+  background: #fff;
+  color: #B282B9;
+  font-weight: bold;
+  padding-bottom: 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(178, 130, 185, 0.2);
+}
+
+/* --- PHOTO STACK (The Main Fix) --- */
+.photo-stack {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  /* Ensures images don't get cut off */
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  /* bottom: 50px; */
+}
+
+.photo-stack .photo {
+  position: absolute;
+  padding: 12px; /* Standard white border size */
+  /* No internal border radius for the frame itself creates the crisp edge */
+  border-radius: 2px; 
+  /* transform: rotate(18deg); */
+}
+
+.photo-stack .photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the frame */
+}
+
+/* Large Photo (Back/Right) */
+.photo.large {
+  width: 611px;  /* Specific width */
+  height: 606px;
+  top: -40px;
+  right: -120px;
+  z-index: 1;
+}
+
+/* Small Photo (Front/Left) */
+.photo.small {
+  width: 430px;  /* Smaller width */
+  height: 430px; /* Square-ish */
+  top: 100px;    /* Push down */
+  left: 0px;    /* Push right */
+  transform: rotate(5deg);
+  z-index: 2;
+}
+
+/* --- Stars Positioning --- */
+.deco-star { position: absolute; z-index: 0; }
+.star-top-left { top: 190px; left: 180px; }
+.star-bottom-left { bottom: 75px; left: 180px; z-index: 10;}
+.star-center { top: 90px; left: 850px; }
+.star-bottom-right { bottom: 60px; right: 10%; }
+
+/* Vector positions */
+.vectors { position: absolute;}
+.vector6 {top: 80px; left: 390px; z-index: 0; }
+.vector7 {top: 35px; right: 475px; z-index: 0; }
+.vector8 {bottom: 30px; right: 640px;}
+
+
+/* best sellers */
+.best-sellers { padding: 60px 0; background: #D3D1E8; text-align: center; }
+.title-wrapper { margin-bottom: 20px;}
+.section-title { font-family: var(--font-script); font-size: 47px; margin: 0; color: #5C4B5E; font-style: italic; }
+.main-title { font-size: 40px; font-weight: bold; margin: 0; position: relative; display: inline-block; z-index: 2;}
+.best-sellers-bar {width: 250px; height: 22px; background: #E2D2E8; display: block; position: relative; top: -25px; z-index: 1;}
+.bs-bar {display: flex; justify-content: center;}
+.vector15 {top: 799px; right: 690px;}
+
+.category-pill { width: 528px; height: 37px; margin: 20px auto; background: white; padding: 10px; border-radius: 50px; display: flex; gap: 50px; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); align-items: center;}
+.category-pill .cat { background: transparent; border: none; font-size: 17px; cursor: pointer; }
+.category-pill .active { font-weight: bold; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 40px; justify-items: center; }
+.card { background: white; width: 260px; text-align: left; box-shadow: 0 0 0 6px white;}
+.card-media {display: flex; justify-content: center;}
+.card-media img { width: 232px; height: 242px; object-fit: cover; padding-top: 10px;}
+.card-info { display: flex; justify-content: space-between; margin-left: 20px; margin-right: 20px; align-items: center;}
+.card-title { font-weight: bold; font-size: 17px;}
+
+.price { font-weight: bold; color: #5C4B5E;}
+.btn.add { display: flex; margin: 0 auto; background: #F1EFF7; border-radius: 20px; padding: 10px 0; width: 152px; height: 34px; font-weight: bold; margin-bottom: 20px; justify-content: center; align-items: center; border: none;}
+.btn.ghost { background: white; margin-top: 50px; font-size: 18px; padding: 12px 40px; border-radius: 30px; color: #B282B9; border: none; width: 153px; height: 41px;}
+
+/* who */
+/* --- Global Styles --- */
+.who {padding:60px 0; overflow: hidden; background-image: url('../assets/img/background.png'); background-size: cover; background-position: center; width: 100%;}
+.who-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: flex-start;}
+.who-title {font-size: 37px; font-weight: bold; color: #5C4B5E; margin-bottom: 20px; position: relative; line-height: 1.2; z-index: 1;}
+.script {font-family: 'Actonia'; font-size: 63px; display: block; color: #5C4B5E; font-weight: bold;}
+.who-bar {display: flex; justify-content: center;}
+.who-in-bar {width: 282px; height: 19px; background: #E2D2E8; display: block; position: relative; top: -53px; z-index: 0; right: 130px;}
+
+/* --- Card Styles --- */
+.who-card-container {position: relative; padding-top: 15px;}
+.who-card {background-color: #f3ebf6; padding: 30px 40px; border-radius: 15px; position: relative; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); width: 85%;}
+.who-card p {color: #5e4c6c; font-size: 1.1em; margin-bottom: 25px;}
+.btn {display: inline-block; background-color: #ffffff; color: #5e4c6c; padding-top: 8px; border-radius: 20px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: all 0.2s; width: 155px; height: 36px; margin-top: 10px;}
+
+/* --- Photo Grid Styles --- */
+.who-photos {position: relative; height: 480px; margin-top: 30px;}
+.rotated {position: absolute; width: 500px; height: 100%; padding: 15px;}
+.rotated img {width: 380px; height: 380px; object-fit: cover; border-radius: 0;}
+.photo-1 {top: 70px; left: 100px; z-index: 2;}
+.photo-2 {bottom: 10px; right: 150px; z-index: 3;}
+
+/* --- who decos --- */
+.who-star {left: 494px; top: 2090px; z-index: 2;}
+.vector5 {left: 165px; top: 1650px;}
+.vector9 {right: 525px; top: 1650px;}
+.vector10 {right: 340px; top: 2090px;}
+
+
+
+
+
+
+
+
+
+
+
+/* customize */
+.customize-cake-section { display: flex; justify-content: center; align-items: center; background-color: #e6dff0; min-height: 400px; gap: 500px; flex-wrap: wrap;}
+.customize-cake-content {text-align: left; left: 0;}
+.customize-cake-content-items {display: flex; flex-direction: column; align-items: center; }
+.customize-cake-title { font-size: 37px; color: #5C4B5E; font-family: 'inter';font-weight: bold;}
+.highlight { font-family: 'Actonia'; color: #5C4B5E; font-size: 47px; font-weight: bold; position: relative; bottom: 50px;}
+.customize-cake-description { font-size: 20px; color: #5C4B5E; font-family: 'Inter'; font-weight: bold; width: 300px; text-align: center;}
+.customize-now-button {width: 158px; height: 31px; background-color: #ffffff; color: #000000; border: none; border-radius: 25px; font-size: 14px; cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'Inter'; font-weight: bold;}
+.customize-now-button:hover { background-color: #f0f0f0; color: #331e45; }
+
+.customize-cake-image-container {padding: 10px; border-radius: 5px;display: flex; justify-content: center; align-items: center; }
+.customize-cake-image-container img { max-width: 100%; height: auto; display: block; border-radius: 3px; }
+
+
+/* events */
+.events{padding:36px 0}
+.events-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.event-card{display:flex;align-items:center;gap:12px;background:var(--white);padding:10px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.04)}
+.event-card img{width:120px;height:120px;object-fit:cover;border-radius:8px}
+
+/* reviews */
+.reviews{padding:60px 0;background:linear-gradient(180deg, transparent, rgba(211,209,232,0.15))}
+.reviews-wrap{display:flex;align-items:center;gap:8px}
+.carousel-btn{background:var(--accent-2);border:none;padding:8px 12px;border-radius:8px;font-size:22px;cursor:pointer}
+.reviews-track {
+  display: flex;
+  transition: transform 0.35s ease;
+  gap: 24px;
+  overflow: hidden;
+}
+.review {
+  flex: 0 0 300px;  /* fixed card width so sliding is correct */
+  background: var(--white);
+  border-radius: 20px;
+  padding: 24px 20px 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.review h4 {
+  margin: 12px 0 10px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.review p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6d4f68;
+}
+.review .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  margin: 0 auto -40px;
+  display: block;
+}
+
+/* footer */
+.site-footer{padding:36px 0;background:var(--accent-2);color:var(--muted)}
+.footer-grid{display:flex;gap:20px;align-items:flex-start;justify-content:space-between}
+.footer-links{display:flex;gap:26px}
+.footer-links h4{margin:0 0 8px 0}
+.footer-links a{display:block;color:var(--muted);text-decoration:none;margin-bottom:6px}
+.center{text-align:center}
+.muted{color:#8a7489}
+.small{font-size:13px;margin-top:6px}
+
+/* utilities */
+.center{display:flex;justify-content:center}
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .who-grid{grid-template-columns:1fr}
+  .customize-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .cards-grid{grid-template-columns:1fr}
+  .reviews-track{overflow-x:auto}
+  .photo.large{display:none}
+  .photo.small{transform:none;position:static;width:60%}
+}
