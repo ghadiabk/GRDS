@@ -7,19 +7,22 @@
   <link rel="stylesheet" href="css/product.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
+ <header class="site-header">
     <div class="container header-inner">
-      <img src="assets/logo.png" alt="Un Petit Gato" class="logo">
+      <div class="brand">
+        <img src="assets/img/unpetitgato1 1.png" alt="logo" class="logo">
+      </div>
       <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="#">About</a>
+        <a class="active" href="index.html">Home</a>
+        <a href="#">About Us</a>
+        <a href="product.html">Menu</a>
         <a href="#">Contact</a>
+        <a href="#">Login</a>
+        <a href="#"><img src="assets/img/search.png" alt="Search"></a>
+        <a href="#"><img src="assets/img/Shopping cart.png" alt="Shopping Cart"></a>
       </nav>
     </div>
   </header>
-
   <!-- Products Section -->
   <section class="products">
     <h2 class="section-title">Our Products</h2>
@@ -36,7 +39,7 @@
     <div class="container cards-grid">
       <div class="card">
         <div class="card-media">
-          <img src="assets/cake1.jpg" alt="Chocolate Cake">
+          <img src="assets/img/cake-2-1.png" alt="Chocolate Cake">
         </div>
         <div class="card-info">
           <span class="card-title">Chocolate Cake</span>
@@ -131,5 +134,32 @@
       <button class="btn ghost">Next</button>
     </div>
   </section>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-logo">
+        <img src="assets/img/image 1.png" alt="logo" style="width:100px">
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Home</h4>
+          <a href="#">About Us</a>
+          <a href="#">Best Sellers</a>
+          <a href="#">Customize</a>
+        </div>
+        <div>
+          <h4>About Us</h4>
+          <a href="#">Story</a>
+          <a href="#">Owner</a>
+          <a href="#">Mission</a>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <a href="#">All products</a>
+          <a href="#">Customization</a>
+        </div>
+      </div>
+    </div>
+    <div class="center muted small">© <span id="year"></span> Un Petit Gato. All rights reserved.</div>
+  </footer>
 </body>
 </html>
