@@ -22,7 +22,7 @@
         <a href="#">About Us</a>
         <a href="product.html">Menu</a>
         <a href="#">Contact</a>
-        <a href="#">Login</a>
+        <a href="#" class="login-btn" style="color: white;">Login</a>
         <a href="#"><img src="assets/img/search.png" alt="Search"></a>
         <a href="#"><img src="assets/img/Shopping cart.png" alt="Shopping Cart"></a>
       </nav>
@@ -61,7 +61,6 @@
         <h1 class="hero-title">
           <span class="script">
             Cake 
-            <svg class="shine-lines">...</svg>
           </span>
           <br>
           <span class="big"><span class="highlight">Your Day</span></span>
@@ -202,17 +201,23 @@
 
   <!-- CUSTOMIZE -->
   <section class="customize-cake-section">
+    
     <div class="customize-cake-content">
+      <img src="assets/img/Vector 13.png" alt="" class="custom-vector">
       <div class="customize-cake-content-items">
-        <img src="assets/img/Vector 13.png" alt="" class="custom-vector">
         <h2 class="customize-cake-title">Customize</h2>
         <span class="highlight">Your Own Cake</span>
         <span class="highlight-bar"></span>
         <p class="customize-cake-description">Let us bring your vision to life, one beautifully crafted cake at a time!</p>
-        <button class="customize-now-button">Customize Now</button>
+        <div class="custom-btn">
+          <button class="customize-now-button">Customize Now</button>
+        </div>
       </div>
     </div>
+    <div>
     <img src="assets/img/Star-custom.png" alt="" class="custom-star">
+    <img src="assets/img/Star-2.png" alt="" class="custom-star-2">
+    </div>
     <div class="customize-cake-image-container">
         <img src="assets/img/ggtgtt 1.png" alt="">
     </div>
@@ -222,27 +227,27 @@
   <section class="events">
     <div class="container">
         <div class="snowflake flake-1">
-            <img src="assets/img/snow-top.png" alt="Snowflake deco" style="width: 38px; top: 50px; right: 280px;">
+            <img src="assets/img/Star-custom.png" alt="Snowflake deco" style="width: 38px;">
         </div>
         <div class="snowflake flake-2">
-            <img src="assets/img/snow-middle.png" alt="Snowflake deco" style="width: 38px; top: 100px; left: 150px;">
+            <img src="assets/img/Star-2.png" alt="Snowflake deco" style="width: 38px;">
         </div>
         <div class="snowflake flake-3">
-            <img src="assets/img/snow-bottom.png" alt="Snowflake deco" style="width: 21px; bottom: 80px; left: 450px;">
+            <img src="assets/img/Star-2.png" alt="">
         </div>
         
         <div class="events-inner">
             <div class="events-text">
-                <h3>Stay up to date<br>with our events!</h3>
-                <p>info@unpetitgato.com</p>
-            </div>
-            
-            <div class="event-card">
-                <div><span class="event-date">December</span><span class="event-date-num">13</span></div>
-                <img src="assets/img/ffff 1.png" alt="Hot cocoa with gingerbread houses">
-                <div class="event-caption">
-                    <strong>Ginger Bread Decoration</strong>
+                <h3 class="events-title-script">Stay Sweetened</h3>
+                <h2 class="events-title-main">Be a part of our Community</h2>
+                <span class="events-highlight"></span>
+                <div class="shine-lines events-shine">
+                  <img src="assets/img/vector 15.png" alt="Shine deco">
                 </div>
+                <p class="events-copy">
+                  Subscribe to our newsletter and be the first to hear about delicious new treats, exclusive offers, exciting events, and hands-on workshops designed to inspire and delight.
+                </p>
+                <a href="#" class="btn cta-button">Join Now</a>
             </div>
         </div>
     </div>
@@ -250,67 +255,171 @@
 
   <!-- REVIEWS -->
   <section class="reviews">
-    <div class="container">
-      <h2 class="section-title">Reviews</h2>
-      <div class="reviews-wrap">
-        <button class="carousel-btn prev" aria-label="previous">‹</button>
-        <div class="reviews-track">
-          <div class="review">
-            <img class="avatar" src="assets/img/Ellipse 26.png" alt="">
+  <div class="container">
+    
+    <div class="reviews-header">
+      <h2 class="sweet-title">Sweet</h2>
+      <div class="reviews-script-wrapper">
+        <span class="script-title">Reviews</span>
+        <span class="reviews-underline"></span>
+        <img src="assets/img/vector 15.png" class="shine-deco" alt=""> 
+      </div>
+    </div>
+
+    <div class="reviews-slider-container">
+      
+      <button class="nav-arrow prev-arrow hidden" id="prevBtn">
+        <img src="assets/img/arrow-left.png" alt="">
+      </button>
+
+      <div class="reviews-track" id="reviewTrack">
+        
+        <div class="review-page active-page">
+          
+          <div class="review-card">
+            <div class="avatar-wrapper">
+              <img src="assets/img/Ellipse 26.png" alt="Chloe">
+            </div>
+            <div class="stars">★★★★☆</div>
             <h4>Chloe Larrson</h4>
             <p>“Absolutely in love with my custom cake... it turned out even more beautiful and delicious than I imagined.”</p>
           </div>
 
-          <div class="review">
-            <img class="avatar" src="assets/img/Ellipse 27.png" alt="">
+          <div class="review-card">
+            <div class="avatar-wrapper">
+              <img src="assets/img/Ellipse 27.png" alt="Tia">
+            </div>
+            <div class="stars">★★★★★</div>
             <h4>Tia Morgen</h4>
             <p>“Lovely experience! My red velvet cake with cream cheese frosting was gorgeous and tasted amazing.”</p>
           </div>
 
-          <div class="review">
-            <img class="avatar" src="assets/img/Ellipse 28.png" alt="">
-            <h4>Priya Golef</h4>
-            <p>“The 'Create Your Own Cake' tool is genius! My daughter's unicorn-themed cake came out perfect.”</p>
+          <div class="review-card">
+            <div class="avatar-wrapper">
+              <img src="assets/img/Ellipse 28.png" alt="Priya">
+            </div>
+            <div class="stars">★★★☆☆</div> <h4>Priya Golef</h4>
+            <p>“The 'Create Your Own Cake' tool is genius! It’s easy to use and gives you so many options.”</p>
           </div>
 
-          <div class="review">
-            <img class="avatar" src="assets/img/Ellipse 29.png" alt="">
+          <div class="review-card">
+            <div class="avatar-wrapper">
+              <img src="assets/img/Ellipse 29.png" alt="Maria">
+            </div>
+            <div class="stars">★★★★★</div>
             <h4>Maria Awad</h4>
-            <p>“I ordered a photo cake for my dad's retirement party — it looked exactly like the preview!”</p>
+            <p>“I ordered a photo cake for my dad's retirement party — it looked exactly like the preview! Top notch.”</p>
           </div>
-        </div>
-        <button class="carousel-btn next" aria-label="next">›</button>
-      </div>
+
+        </div> <div class="review-page next-page">
+          
+          <div class="review-card">
+            <div class="avatar-wrapper"><img src="assets/img/Ellipse 26-1.png" alt="User"></div>
+            <div class="stars">★★★★★</div>
+            <h4>Charlos Deligo</h4>
+            <p>“Un Petit Gato is a charming little bakery where every treat feels handmade with love.”</p>
+          </div>
+
+          <div class="review-card">
+            <div class="avatar-wrapper"><img src="assets/img/Ellipse 27-2.png" alt="User"></div>
+            <div class="stars">★★★★☆</div>
+            <h4>Lara Lofton</h4>
+            <p>“Un Petit Gato is a hidden gem that captures the heart with its charming atmosphere, delightful aromas.”</p>
+          </div>
+
+          <div class="review-card">
+            <div class="avatar-wrapper"><img src="assets/img/Ellipse 28-3.png" alt="User"></div>
+            <div class="stars">★★★★☆</div>
+            <h4>Daisy Frost</h4>
+            <p>““Un Petit Gato isn’t just a bakery, it’s a little escape into sweetness — every treat feels thoughtfully made.”</p>
+          </div>
+
+          <div class="review-card">
+            <div class="avatar-wrapper"><img src="assets/img/Ellipse 29-4.png" alt="User"></div>
+            <div class="stars">★★★★☆</div>
+            <h4>Dina Carson</h4>
+            <p>“Un Petit Gato isn’t just a bakery, it’s a little escape into sweetness — every treat feels thoughtfully made.”</p>
+          </div>
+
+        </div> </div>
+
+      <button class="nav-arrow next-arrow" id="nextBtn">
+        <img src="assets/img/arrow-right.png" alt="">
+      </button>
+
     </div>
+  </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-logo">
-        <img src="assets/img/image 1.png" alt="logo" style="width:100px">
+  <div class="container">
+    <div class="footer-top">
+      
+      <div class="footer-brand">
+        <img src="assets/img/logo-footer.png" alt="Un Petit Gato Logo" class="footer-logo-img">
       </div>
-      <div class="footer-links">
-        <div>
+
+      <div class="footer-nav-grid">
+        
+        <div class="footer-col">
           <h4>Home</h4>
           <a href="#">About Us</a>
           <a href="#">Best Sellers</a>
           <a href="#">Customize</a>
+          <a href="#">Reviews</a>
         </div>
-        <div>
+
+        <div class="footer-col">
           <h4>About Us</h4>
           <a href="#">Story</a>
-          <a href="#">Owner</a>
-          <a href="#">Mission</a>
+          <a href="#">About the Owner</a>
+          <a href="#">Our Mission</a>
         </div>
-        <div>
+
+        <div class="footer-col">
           <h4>Products</h4>
           <a href="#">All products</a>
           <a href="#">Customization</a>
+          <a href="#">Categories</a>
         </div>
+
+        <div class="footer-col">
+          <h4>Profile</h4>
+          <a href="#">Sign in</a>
+          <a href="#">My Account</a>
+        </div>
+
+      </div>
+
+      <div class="footer-connect">
+        
+        <div class="connect-header">
+          <span class="lets-text">Let’s</span>
+          <div class="connect-script-wrapper">
+            <span class="connect-script">Connect</span>
+            <span class="connect-underline"></span>
+            <img src="assets/img/vector 15.png" class="connect-shine" alt="">
+          </div>
+        </div>
+
+        <div class="social-icons">
+          <a href="#" class="social-circle">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-circle">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-circle">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+        </div>
+
       </div>
     </div>
-    <div class="center muted small">© <span id="year"></span> Un Petit Gato. All rights reserved.</div>
+  </div>
   </footer>
+
+  <script src="js/home.js"></script>
 </body>
 </html>
