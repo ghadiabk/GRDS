@@ -1,0 +1,358 @@
+:root {
+    --bg-color: #EFEEF6;
+    --card-color: #CDC9E2;
+    --text-dark: #4A4A4A;
+    --text-purple: #8E7DA5;
+    --white: #FFFFFF;
+    --btn-hover: #e6e1f0;
+}
+
+@font-face {
+  font-family: 'Actonia';
+  src: url('../assets/fonts/Actonia.woff2') format('woff2'),
+       url('../assets/fonts/Actonia.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+/* --- Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 150px;
+    background-color: #C8C5E2CC; /* Matches screenshot background flow */
+    max-height: 100px;
+}
+
+/* Placeholder styling to mimic the logo image */
+.logo-container img {
+    height: 150px;
+    padding-top: 10px;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    right: -190px;
+    position: relative;
+}
+nav a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.btn-login-nav {
+    background-color: #BC8FBC; /* Muted pink/purple */
+    color: white;
+    padding: 8px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.header-actions i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+
+
+/* --- Main Content --- */
+.main-container {
+    height: 413px;
+    padding: 20px;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.account-card {
+    background-color: var(--card-color);
+    width: 1150px;
+    border-radius: 50px;
+    display: flex;
+    padding: 60px;
+    gap: 60px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+/* Left Side: Profile */
+.profile-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.avatar-circle {
+    width: 220px;
+    height: 220px;
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent white circle */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.btn-white {
+    background-color: rgba(255,255,255,0.7);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #B282B9;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.btn-white:hover {
+    background-color: #fff;
+}
+/* Right Side: Form */
+.form-side {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-side h2 {
+    font-family: 'Actonia';
+    font-size: 3.5rem;
+    color: #5D536B; /* Darker cursive text */
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+.input-group {
+    margin-bottom: 20px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 0.95rem;
+}
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--white);
+    font-size: 1rem;
+    outline: none;
+}
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-options a {
+    color: #666;
+    text-decoration: none;
+}
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+/* --- Footer --- */
+footer {
+    margin-top: 50px;
+    padding: 50px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+}
+
+.footer-line {
+    height: 2px; 
+    background-color: #666; 
+    width: 100%; 
+    margin-bottom: 40px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo-box {
+    width: 144px; 
+    height: 144px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    padding: 10px;
+}
+.footer-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+.footer-col ul {
+    list-style: none;
+}
+.footer-col li {
+    margin-bottom: 12px;
+}
+.footer-col a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95rem;
+}
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 50px;
+    right: 45px;
+    position: relative;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 27px;
+}
+.icon-circles {
+    width: 40px;
+    height: 40px;
+    background-color: #E9DCEB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    /* Slightly squeeze content when the browser gets smaller than max-width */
+    header {
+        padding: 15px 30px;
+    }
+    nav ul {
+        position: relative;
+        right: -70px;
+    }
+    .account-card {
+        padding: 40px;
+        gap: 40px;
+    }
+    .footer-grid {
+        padding: 0 10px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    /* Tablet and Small Screen Adjustments */
+    
+    /* Header Stacking */
+    header {
+        padding: 20px 10px;
+        margin-bottom: 200px;
+    }
+    nav ul {
+        gap: 15px;
+        font-size: 0.9rem;
+        margin: 10px 0;
+        right: 10px;
+        top: 5px;
+    }
+    .header-actions {
+        margin-top: 10px;
+    }
+
+    /* Main Card Stacking */
+    .account-card {
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 30px;
+        max-width: 95%; /* Allow it to fill more screen space */
+    }
+    
+    .profile-side {
+        gap: 15px;
+        padding-bottom: 20px;
+    }
+    .avatar-circle {
+        width: 150px;
+        height: 150px;
+        top: 30px;
+    }
+    .btn-mobile {
+        top: 50px;
+        position: relative;
+    }
+    .form-side h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .action-buttons {
+        justify-content: center;
+    }
+
+    /* Footer Stacking */
+    footer {
+        padding: 30px 50px;
+        text-align: center;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns on mobile/tablet */
+        gap: 30px;
+    }
+    
+    .footer-logo {
+        grid-column: span 2; /* Logo spans both columns */
+        align-items: center;
+    }
+    .footer-logo-box {
+        justify-content: center;
+        width: 120px;
+        height: 120px;
+    }
+    .social-icons {
+        margin-top: 15px;
+        right: 80px;
+    }
+}

@@ -44,15 +44,14 @@ body{
 .site-header{
   background:#C8C5E2;
   border-bottom:1px solid rgba(0,0,0,0.03);
-  height: 122px;
+  height: 100px;
 }
 .header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding-bottom: 20px;
 }
-.logo{height: 135px;width: 180px;;}
+.logo{height: 135px;width: 180px;position: relative;bottom: 10px;}
 
 /* nav */
 .main-nav a{
@@ -64,6 +63,8 @@ body{
   align-items:center;
   height:100%;
   font-weight: bold;
+  bottom: 15px;
+  position: relative;
 }
 .main-nav a + a{
   margin-left:33px;
@@ -652,8 +653,6 @@ html, body {
   :root { --container: 100%; }
   .container { padding: 0 30px; }
 
-  /* 2. HEADER: Keep "Normal" Style (Side-by-Side) */
-  .site-header { height: auto;}
   .header-inner {
     /* Keep row layout like desktop */
     display: flex;
@@ -671,6 +670,7 @@ html, body {
   .main-nav a {
     margin-left: 15px; /* Reduce gaps between links */
     margin-right: 0;
+    bottom: 20px;
     font-size: 14px; /* Slightly smaller font to fit */
   }
   .main-nav a + a { margin-left: 15px; }
@@ -766,6 +766,9 @@ html, body {
     justify-content: center; /* Center links */
     gap: 10px;
   }
+  .main-nav a {
+    bottom: 5px;
+  }
   .logo { height: 100px; width: auto; } /* Shrink logo slightly */
 
   /* Typography */
@@ -792,7 +795,7 @@ html, body {
   /* Footer */
   .site-footer { padding: 30px;}
   .footer-nav-grid {top: -100px; position: relative;}
-  .footer-top { justify-content: space-around; gap: 30px; }
+  .footer-top { justify-content: space-around; gap: 30px;}
   .footer-brand { bottom: 0; }
   .lets-text { position: relative; top: auto; left: auto; margin-bottom: -10px; display: block; width: 100%; text-align: center;}
   .connect-header {align-self: center;}
