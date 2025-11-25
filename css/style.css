@@ -332,8 +332,8 @@ body{
 .highlight-bar {width: 323px; height: 17px; background: #F1EFF7; display: block; position: relative; bottom: 81px; z-index: 0;}
 .customize-cake-description { font-size: 20px; color: #5C4B5E; font-family: 'Inter'; font-weight: bold; width: 300px; text-align: center; position: relative; bottom: 45px;}
 
-.custom-btn { display: flex; justify-content: center;}
-.customize-now-button {width: 172px; height: 31px; background-color: #ffffff; color: #B282B9; border: none; border-radius: 25px; font-size: 14px; cursor: pointer; font-family: 'Inter'; font-weight: bold; position: relative; bottom: 30px; right: 10px;}
+.customize-now-button {width: 172px; height: 31px; background-color: #ffffff; color: #B282B9; border: none; border-radius: 25px; font-size: 14px; cursor: pointer; font-family: 'Inter'; font-weight: bold; position: relative; bottom: 30px; right: 10px; align-self: center;}
+.customize-now-button a { text-decoration: none; color: #B282B9; }
 
 .customize-cake-image-container {align-items: center;}
 .customize-cake-image-container img {width: 350px; height: 440px; display: block; border-radius: 3px; position: relative; top: 30px;}
