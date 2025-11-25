@@ -622,3 +622,179 @@ body{
   transform: translateY(-3px);
   background-color: #916198;
 }
+
+
+/* --- GLOBAL FIXES --- */
+/* This kills the scroll bars caused by elements poking out */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Apply overflow:hidden to sections causing scroll issues */
+.hero, .who, .best-sellers, .reviews, .customize-cake-section {
+  overflow: hidden; 
+  width: 100%;
+  position: relative;
+}
+
+/* --- TABLET & SMALLER DESKTOPS (Max-width: 1024px) --- */
+@media screen and (max-width: 1024px) {
+
+  /* 1. CLEANUP: Hide decorative vectors */
+  .vectors, .deco-star, .snowflake, 
+  .custom-vector, .custom-star, .custom-star-2, 
+  .shine-lines, .shine-deco, .events-shine,
+  .who-in-bar, .highlight-bar, .best-sellers-bar, .events-highlight {
+    display: none !important; 
+  }
+
+  :root { --container: 100%; }
+  .container { padding: 0 30px; }
+
+  /* 2. HEADER: Keep "Normal" Style (Side-by-Side) */
+  .site-header { height: auto;}
+  .header-inner {
+    /* Keep row layout like desktop */
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; /* Wrap only if absolutely necessary */
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .main-nav {
+    margin-top: 10px; /* Small buffer if it wraps */
+  }
+  
+  .main-nav a {
+    margin-left: 15px; /* Reduce gaps between links */
+    margin-right: 0;
+    font-size: 14px; /* Slightly smaller font to fit */
+  }
+  .main-nav a + a { margin-left: 15px; }
+
+  /* 3. HERO: Fix layout but keep contained */
+  .hero-grid { 
+    display: flex; 
+    flex-direction: column; 
+    text-align: center; 
+    gap: 30px;
+  }
+  
+  .hero-left { margin: 0 auto; padding: 0;}
+  .hero-content-box { margin: 30px auto 0; width: 100%; }
+  
+  .photo-stack {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    transform: scale(0.85);
+    margin: 0 auto;
+    left: auto; top: auto; right: auto;
+  }
+  .photo.large {
+    right: -400px;
+  }
+  .photo.small {
+    left: -350px;
+  }
+
+  /* Best Sellers */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .category-pill { width: 40%; flex-wrap: wrap; height: auto; border-radius: 20px; gap: 20px; }
+
+  /* Who We Are */
+  .who { padding: 50px 20px; }
+  .who-grid { grid-template-columns: 1fr; gap: 40px; }
+  .who-card { width: 100%; }
+  .who-title {text-align: center;}
+  .who-photos { 
+    height: 400px; 
+    width: 100%;
+    /* Ensure photos don't push width */
+    position: relative; 
+  }
+  
+  /* Center the rotated photos and prevent overflow */
+  .rotated.photo-1 { left: 85%;top: -5px; transform: translateX(-80%); }
+  .rotated.photo-2 { right: 70%;top: -60px; transform: translateX(80%); }
+
+  /* Customize */
+  .customize-cake-section { 
+    flex-direction: column; 
+    text-align: center; 
+    gap: 20px;
+    
+  }
+  .customize-cake-content-items { align-items: center; }
+  .customize-now-button { bottom: -200px; right: auto; margin-top: 10px; z-index: 1;}
+  .customize-cake-image-container img { top: -150px; max-width: 100%; height: auto; z-index: 0;}
+  .customize-cake-image-container { max-height: 250px;}
+
+  /* Reviews */
+  .reviews-slider-container { min-height: auto; padding-bottom: 30px;}
+  .review-page { grid-template-columns: repeat(2, 1fr); }
+  
+  /* Footer */
+  .site-footer { padding: 30px;}
+  .footer-top { justify-content: space-around; gap: 30px; }
+  .footer-brand { bottom: 0; }
+  .lets-text { position: relative; top: auto; left: auto; margin-bottom: -10px; display: block; width: 100%; text-align: center;}
+  .connect-header {align-self: center;}
+  .footer-connect {top: -100px; position: relative; height: 100px;}
+}
+
+/* --- MOBILE PHONES (Max-width: 768px) --- */
+@media screen and (max-width: 768px) {
+  
+  .container { padding: 0 20px; }
+
+  /* Header: On very small screens, stack gently but keep style */
+  .header-inner {
+    justify-content: center;
+    gap: 100px;
+  }
+
+  .logo { top: 10px; position: relative;} /* Shrink logo */
+
+  .main-nav {
+    justify-content: center; /* Center links */
+    gap: 10px;
+  }
+  .logo { height: 100px; width: auto; } /* Shrink logo slightly */
+
+  /* Typography */
+  .hero-title .script { font-size: 55px; }
+  .hero-title .big { font-size: 36px; }
+  
+  /* Hero Image */
+  .photo-stack { transform: scale(0.65); height: 320px; margin-bottom: -30px; margin-top: -60px;}
+
+  .category-pill { width: 50%; }
+
+  .events-copy { width: 100%; right: 0; margin: 50px 0;}
+  .events-text { text-align: center; align-items: center;}
+
+  /* Grids */
+  .cards-grid { grid-template-columns: 2 1fr; }
+  .review-page { grid-template-columns: 2 1fr; }
+  .review-card
+  .review-page .review-card:nth-child(n+2) { display: none; } /* Show 1 review only */
+
+  .rotated.photo-1 {left: 650px;}
+  .rotated.photo-2 {right: 550px;}
+
+  /* Footer */
+  .site-footer { padding: 30px;}
+  .footer-nav-grid {top: -100px; position: relative;}
+  .footer-top { justify-content: space-around; gap: 30px; }
+  .footer-brand { bottom: 0; }
+  .lets-text { position: relative; top: auto; left: auto; margin-bottom: -10px; display: block; width: 100%; text-align: center;}
+  .connect-header {align-self: center;}
+  .footer-connect {top: -100px; position: relative; height: 100px;}
+}
