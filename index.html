@@ -10,19 +10,20 @@
 
   <link rel="preload" href="assets/fonts/Actonia.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <img src="assets/img/unpetitgato1 1.png" alt="logo" class="logo">
+        <img src="assets/img/header-logo.png" alt="logo" class="logo">
       </div>
       <nav class="main-nav">
         <a class="active" href="index.html">Home</a>
         <a href="#">About Us</a>
         <a href="product.html">Menu</a>
         <a href="#">Contact</a>
-        <a href="login.html" class="login-btn" style="color: white;">Login</a>
+        <a href="#" class="login-btn" style="color: white;">Login</a>
         <a href="#"><img src="assets/img/search.png" alt="Search"></a>
         <a href="#"><img src="assets/img/Shopping cart.png" alt="Shopping Cart"></a>
       </nav>
@@ -33,15 +34,15 @@
   <section class="hero">
 
     <!-- decos -->
-    <div class="deco-star star-top-left">
+    <!-- <div class="deco-star star-top-left">
       <img src="assets/img/Starlefttop.png" alt="">
-    </div>
+    </div> -->
     <div class="deco-star star-bottom-left">
       <img src="assets/img/Starbottomleft.png" alt="">
     </div>
-    <div class="deco-star star-center">
+    <!-- <div class="deco-star star-center">
       <img src="assets/img/Starmiddletop.png" alt="">
-    </div>
+    </div> -->
     <div class="deco-star star-bottom-right">
       <img src="assets/img/Starbottomright.png" alt="">
     </div>
@@ -78,6 +79,11 @@
         <div class="photo-stack">
           <div class="photo large">
             <img src="assets/img/cake-2-1.png" alt="cake large">
+          </div>
+          <div>
+            <div class="photo medium">
+              <img src="assets/img/polaroid 1.png" alt="cake medium">
+            </div>
           </div>
           <div class="photo small">
             <img src="assets/img/cake-2-2.png" alt="cake small">
@@ -208,7 +214,7 @@
         <h2 class="customize-cake-title">Customize</h2>
         <span class="highlight">Your Own Cake</span>
         <span class="highlight-bar"></span>
-        <p class="customize-cake-description">Let us bring your vision to life, one beautifully crafted cake at a time!</p>
+        <p class="customize-cake-description">Let us bring your vision to life, one beautifully crafted cake at a time! From elegant celebrations to fun, themed creations, we’re here to transform your ideas into stunning, delicious centerpieces.</p>
         <button class="customize-now-button"> <a href="customize.html"> Customize Now </a>  </button> <!--Zabet Styling el a ana i didnt touch it kermel ma 2ed2arlak ur work-->
       </div>
     </div>
@@ -216,13 +222,13 @@
     <img src="assets/img/Star-custom.png" alt="" class="custom-star">
     <img src="assets/img/Star-2.png" alt="" class="custom-star-2">
     </div>
-    <div class="customize-cake-image-container">
+    <!-- <div class="customize-cake-image-container">
         <img src="assets/img/ggtgtt 1.png" alt="">
-    </div>
+    </div> -->
   </section>
 
   <!-- EVENTS -->
-  <section class="events">
+  <!-- <section class="events">
     <div class="container">
         <div class="snowflake flake-1">
             <img src="assets/img/Star-custom.png" alt="Snowflake deco" style="width: 38px;">
@@ -249,7 +255,7 @@
             </div>
         </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- REVIEWS -->
   <section class="reviews">
@@ -415,9 +421,54 @@
 
       </div>
     </div>
+    <div class="footer-line"></div>
+    <div class="footer-bottom">
+      <p>Copyright &copy;. All rights reserved</p>
   </div>
   </footer>
 
+  <div id="loginModal" class="modal-overlay">
+  <div class="modal-content">
+    
+    <span class="close-modal">&times;</span>
+
+    <img src="assets/img/Star-custom.png" class="modal-star star-1" alt="star">
+    <img src="assets/img/Star-2.png" class="modal-star star-2" alt="star">
+
+    <div class="modal-header">
+      <img src="assets/img/qoowoo.png" alt="Un Petit Gato" class="modal-logo">
+    </div>
+
+    <div class="modal-titles">
+      <span class="modal-script">Welcome to</span>
+      <h2 class="modal-brand-name">Un Petit Gato</h2>
+      <span class="modal-underline"></span>
+    </div>
+
+    <form class="login-form">
+      <input type="text" placeholder="Username or email address" class="modal-input" required>
+      <input type="password" placeholder="Password" class="modal-input" required>
+      
+      <button type="submit" class="btn-modal-login">Login</button>
+    </form>
+
+    <div class="modal-footer">
+      <a href="#" class="forgot-link">Forgot Login Detail?</a>
+      
+      <div class="modal-socials">
+        <img src="assets/img/login-google.png" alt="">
+        <img src="assets/img/login-facebook.png" alt="">
+      </div>
+
+      <p class="signup-text">
+        Don't have an account? <a href="#" class="signup-link">Sign up Now</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
   <script src="js/home.js"></script>
+  <script src="js/overlay.js"></script>
 </body>
 </html>

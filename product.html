@@ -17,7 +17,7 @@
         <a href="#">About Us</a>
         <a href="product.html">Menu</a>
         <a href="#">Contact</a>
-        <a href="login.html" class="login-btn" style="color: white;">Login</a>
+        <a href="#" class="login-btn" style="color: white;">Login</a>
         <a href="#"><img src="assets/img/search.png" alt="Search"></a>
         <a href="#"><img src="assets/img/Shopping cart.png" alt="Shopping Cart"></a>
       </nav>
@@ -201,5 +201,50 @@
     </div>
   </div>
   </footer>
+
+
+  <!-- Overlay HTML -->
+  <div id="loginModal" class="modal-overlay">
+  <div class="modal-content">
+    
+    <span class="close-modal">&times;</span>
+
+    <img src="assets/img/Star-custom.png" class="modal-star star-1" alt="star">
+    <img src="assets/img/Star-2.png" class="modal-star star-2" alt="star">
+
+    <div class="modal-header">
+      <img src="assets/img/qoowoo.png" alt="Un Petit Gato" class="modal-logo">
+    </div>
+
+    <div class="modal-titles">
+      <span class="modal-script">Welcome to</span>
+      <h2 class="modal-brand-name">Un Petit Gato</h2>
+      <span class="modal-underline"></span>
+    </div>
+
+    <form class="login-form">
+      <input type="text" placeholder="Username or email address" class="modal-input" required>
+      <input type="password" placeholder="Password" class="modal-input" required>
+      
+      <button type="submit" class="btn-modal-login">Login</button>
+    </form>
+
+    <div class="modal-footer">
+      <a href="#" class="forgot-link">Forgot Login Detail?</a>
+      
+      <div class="modal-socials">
+        <img src="assets/img/login-google.png" alt="">
+        <img src="assets/img/login-facebook.png" alt="">
+      </div>
+
+      <p class="signup-text">
+        Don't have an account? <a href="#" class="signup-link">Sign up Now</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+  <script src="js/overlay.js"></script>
 </body>
 </html>
