@@ -7,7 +7,7 @@
 
   <!-- Fonts -->
    <link rel="preload" href="assets/fonts/Actonia.woff2" as="font" type="font/woff2" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/customize.css">
   
@@ -16,14 +16,14 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <img src="assets/img/unpetitgato1 1.png" alt="logo" class="logo">
+        <img src="assets/img/header-logo.png" alt="logo" class="logo">
       </div>
       <nav class="main-nav">
         <a class="active" href="index.html">Home</a>
         <a href="#">About Us</a>
         <a href="product.html">Menu</a>
         <a href="#">Contact</a>
-        <a class="login-btn" href="#">Login</a>
+        <a href="#" class="login-btn" style="color: white;">Login</a>
         <a href="#"><img src="assets/img/search.png" alt="Search"></a>
         <a href="#"><img src="assets/img/Shopping cart.png" alt="Shopping Cart"></a>
       </nav>
@@ -31,20 +31,22 @@
   </header>
 
   <main>
+    <section class="heading-hero">
+      <div class="title-block">
+        <div class="title-lines">
+          <span class="title-line primary">Create<img src="assets/img/Vector 15.png" alt=""></span>
+          <span class="title-line secondary">Your Cake</span>
+        </div>
+        <div class="title-underline"></div>
+      </div>
+    </section>
+
     <section class="builder-wrap">
       <div class="page-container builder">
         <div class="preview-card">
-          <div class="title-block">
-            <div class="title-lines">
-              <span class="title-line primary" >Create<img src="assets/img/Vector 15.png" alt="">  </span>
-              <span class="title-line secondary">Your Cake</span>
-            </div>
-            <div class="title-underline"></div>
-          </div>
-
           <div class="image-frame">
             <div class="image-inner">
-              <img id="cake-image" src="assets/img/customcakeP.png" alt="Plain white cake on stand">
+              <img id="cake-image" src="" alt="Custom cake preview" style="visibility:hidden;">
             </div>
           </div>
         </div>
@@ -54,9 +56,9 @@
             <div class="control-group">
               <label class="group-label" for="size-options">Size</label>
               <div class="pill-row" id="size-options">
-                <button type="button" class="pill active">9cm</button>
-                <button type="button" class="pill">15cm</button>
-                <button type="button" class="pill">30cm</button>
+                <button type="button" class="pill" data-size="9cm">9cm</button>
+                <button type="button" class="pill" data-size="15cm">15cm</button>
+                <button type="button" class="pill" data-size="30cm">30cm</button>
               </div>
             </div>
 
@@ -73,26 +75,26 @@
             <div class="control-group">
               <label class="group-label" for="flavor-options">Flavor</label>
               <div class="pill-row" id="flavor-options">
-                <button type="button" class="pill">Chocolate</button>
-                <button type="button" class="pill">Vanilla</button>
-                <button type="button" class="pill">Strawberry</button>
-                <button type="button" class="pill">Red Velvet</button>
+                <button type="button" class="pill" data-flavor="chocolate">Chocolate</button>
+                <button type="button" class="pill" data-flavor="vanilla">Vanilla</button>
+                <button type="button" class="pill" data-flavor="strawberry">Strawberry</button>
+                <button type="button" class="pill" data-flavor="red-velvet">Red Velvet</button>
               </div>
             </div>
 
             <div class="control-group">
               <label class="group-label" for="topping-options">Topping</label>
               <div class="pill-row" id="topping-options">
-                <button type="button" class="pill">Fruits</button>
-                <button type="button" class="pill">Ganache</button>
-                <button type="button" class="pill">Whipped Cream</button>
-                <button type="button" class="pill">Sprinkles</button>
+                <button type="button" class="pill" data-topping="fruits">Fruits</button>
+                <button type="button" class="pill" data-topping="ganache">Ganache</button>
+                <button type="button" class="pill" data-topping="whipped-cream">Whipped Cream</button>
+                <button type="button" class="pill" data-topping="sprinkles">Sprinkles</button>
               </div>
             </div>
 
             <div class="inline-row">
-              <input type="text" placeholder="Write your message" aria-label="Cake message">
-              <button type="button" class="btn primary">Send</button>
+              <input type="text" id="message-input" placeholder="Write your message" aria-label="Cake message">
+              <button type="button" id="message-send" class="btn primary">Send</button>
             </div>
 
             <div class="footer-row">
@@ -108,67 +110,76 @@
     </section>
   </main>
 
-  <footer class="custom-footer">
-    <div class="page-container footer-content">
-      <div class="footer-brand">
-        <img class="footer-illustration" src="assets/img/unpetitfooter.png" alt="un petit gato">
-      </div>
+  <footer class="site-footer">
+    <div class="page-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/img/logo-footer.png" alt="Un Petit Gato" class="footer-logo-img">
+        </div>
 
-      <div class="footer-columns">
-        <div class="footer-column">
-          <h4>Home</h4>
-          <a href="#">About Us</a>
-          <a href="#">Best Sellers</a>
-          <a href="#">Customize</a>
-          <a href="#">Reviews</a>
-        </div>
-        <div class="footer-column">
-          <h4>About Us</h4>
-          <a href="#">Story</a>
-          <a href="#">About the Owner</a>
-          <a href="#">Our Mission</a>
-        </div>
-        <div class="footer-column">
-          <h4>Products</h4>
-          <a href="#">All products</a>
-          <a href="#">Customization</a>
-          <a href="#">Categories</a>
-        </div>
-        <div class="footer-column">
-          <h4>Profile</h4>
-          <a href="#">Sign in</a>
-          <a href="#">My Account</a>
+        <div class="footer-nav-grid">
+          <div class="footer-col">
+            <h4>Home</h4>
+            <a href="#">About Us</a>
+            <a href="#">Best Sellers</a>
+            <a href="#">Customize</a>
+            <a href="#">Reviews</a>
+          </div>
+          <div class="footer-col">
+            <h4>About Us</h4>
+            <a href="#">Story</a>
+            <a href="#">About the Owner</a>
+            <a href="#">Our Mission</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="#">All products</a>
+            <a href="#">Customization</a>
+            <a href="#">Categories</a>
+          </div>
+          <div class="footer-col">
+            <h4>Profile</h4>
+            <a href="#">Sign in</a>
+            <a href="#">My Account</a>
+          </div>
+
+          <div class="footer-connect">
+            <div class="connect-header">
+              <span class="lets-row">
+                <span class="lets-text">Let's</span>
+                <img src="assets/img/Vector 15.png" alt="spark" class="lets-icon">
+              </span>
+              <div class="connect-script-wrapper">
+                <span class="connect-script">Connect</span>
+                <span class="connect-underline"></span>
+              </div>
+            </div>
+            <div class="social-icons">
+              <a href="#" class="social-circle">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" class="social-circle">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-circle">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="footer-connect">
-        <div class="connect-heading">
-          <span class="lets" style="text-align: center;">Let's <img src="assets/img/Vector 15.png" alt=""> </span> 
-          <span class="connect-script-wrap">
-            <span class="connect-script">Connect</span>
-            <span class="connect-underline"></span>
-          </span>
-        </div>
-        <div class="footer-social">
-          <a class="social-circle" href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="4" y="4" width="16" height="16" rx="4" ry="4" fill="none" stroke-width="1.8"/>
-              <circle cx="12" cy="12" r="3.4" fill="none" stroke-width="1.8"/>
-              <circle cx="16.5" cy="7.5" r="0.9" fill="none" stroke-width="1.6"/>
-            </svg>
-          </a>
-          <a class="social-circle" href="#" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M14 8h2V5.5A19 19 0 0 0 13.8 5c-2.2 0-3.8 1.3-3.8 3.6V11H7v3h3v7h3v-7h2.5l.5-3H13V9c0-.9.3-1 1-1z" fill="none" stroke-width="1.6" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a class="social-circle" href="#" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3.5" y="7" width="17" height="10" rx="2.5" ry="2.5" fill="none" stroke-width="1.6"/>
-              <path d="M11 10.5v3l3-1.5-3-1.5z" fill="none" stroke-width="1.6" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
+      <div class="footer-line"></div>
+      <div class="footer-bottom">
+        <p>Copyright &copy;. All rights reserved</p>
       </div>
     </div>
   </footer>
