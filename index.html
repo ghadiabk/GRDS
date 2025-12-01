@@ -467,7 +467,55 @@
 
   </div>
 </div>
+<div id="profileModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content profile-modal-content">
+        <span class="close-modal close-profile-modal">×</span>
+        
+        <div class="profile-container-grid">
+            <div class="profile-left-col">
+                <div class="profile-avatar">
+                    <svg width="150" height="150" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:#E2D2E8; border-radius:50%; padding: 20px;">
+                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <button class="btn-profile-action">Change Profile</button>
+            </div>
 
+            <div class="profile-right-col">
+                <h2 class="modal-titles" style="text-align: left; margin-bottom: 20px;">
+                    <span class="modal-brand-name" style="font-size: 30px;">My</span>
+                    <span class="modal-script" style="font-size: 55px;">Profile</span>
+                </h2>
+
+                <form class="profile-details-form">
+                    <div class="form-row">
+                        <input type="text" id="profile-firstname" class="modal-input profile-input" value="John" readonly>
+                        <input type="text" id="profile-lastname" class="modal-input profile-input" value="Doe" readonly>
+                    </div>
+
+                    <div class="form-row">
+                        <input type="text" id="profile-phone" class="modal-input profile-input" value="76123456" readonly>
+                        <input type="password" id="profile-password" class="modal-input profile-input" value="password123" readonly>
+                    </div>
+
+                    <div class="form-row-full">
+                        <input type="text" id="profile-address" class="modal-input profile-input" value="Downtown, Beirut, Lebanon" readonly style="width: 100%;">
+                     </div>
+
+                    <div class="form-row-full">
+                        <input type="email" id="profile-email" class="modal-input profile-input" value="email@example.com" readonly style="width: 100%;">
+                    </div>
+
+                    <div class="profile-bottom-actions">
+                         <button type="button" class="btn-profile-action small">Edit Info</button>
+                         <button type="button" id="signOutBtn" class="btn-profile-action small">Sign Out</button>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
   <script src="js/home.js"></script>
   <script src="js/overlay.js"></script>
 </body>
