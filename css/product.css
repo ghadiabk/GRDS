@@ -240,22 +240,28 @@ body {
   cursor: pointer;
 }
 
-/* Pagination */
 .pagination {
   margin-top: 50px;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  gap: 15px;
+  gap: 0px;
+  background: var(--white);
+  padding: 5px;
+  border-radius: 50px;
+  border: 2px solid var(--accent);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pagination .btn.ghost {
-  background: var(--white);
+  background: transparent;
   border: none;
-  border-radius: 25px;
-  padding: 8px 15px;
+  border-radius: 50px;
+  padding: 8px 12px;
   color: var(--accent);
   font-weight: bold;
   cursor: pointer;
+  min-width: 35px;
 }
 
 .pagination .btn.ghost:hover {
@@ -263,6 +269,10 @@ body {
   color: var(--white);
 }
 
+.pagination .btn.ghost.active {
+  background: var(--accent);
+  color: var(--white);
+}
 /* --- FOOTER (MATCHING HOMEPAGE) --- */
 .site-footer {
   padding: 80px 0 0;

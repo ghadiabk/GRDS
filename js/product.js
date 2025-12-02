@@ -23,8 +23,9 @@ const productsData = [
   { id: 6, name: 'Oatmeal Cookie', price: 6, category: 'cookies', image: 'assets/cookie2.jpg', description: 'Wholesome oatmeal cookies' },
   { id: 7, name: 'Raspberry Macarons', price: 15, category: 'macarons', image: 'assets/macarons2.jpg', description: 'Sweet raspberry macarons' },
   { id: 8, name: 'Coffee Cake', price: 27, category: 'cakes', image: 'assets/cake4.jpg', description: 'Aromatic coffee-flavored cake' },
+  { id: 9, name: 'Coffee Cake', price: 27, category: 'cakes', image: 'assets/cake4.jpg', description: 'Aromatic coffee-flavored cake' },
+  { id: 10, name: 'Coffee Cake', price: 27, category: 'cakes', image: 'assets/cake4.jpg', description: 'Aromatic coffee-flavored cake' },
 ];
-
 // Initialize
 function init() {
   allProducts = productsData;
@@ -96,21 +97,17 @@ function renderPagination(totalProducts) {
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
   paginationContainer.innerHTML = '';
 
-  if (totalPages <= 1) return;
-
-  // Previous Button
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'btn ghost';
-  prevBtn.textContent = '← Previous';
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      renderProducts();
-      scrollToTop();
+  if (totalPages <= 1) {
+    // Show single page number even if there's only 1 page
+    if (totalPages === 1) {
+      const pageBtn = document.createElement('button');
+      pageBtn.className = 'btn ghost active';
+      pageBtn.textContent = '1';
+      pageBtn.style.fontWeight = 'bold';
+      paginationContainer.appendChild(pageBtn);
     }
-  });
-  paginationContainer.appendChild(prevBtn);
+    return;
+  }
 
   // Page Numbers
   for (let i = 1; i <= totalPages; i++) {
@@ -125,20 +122,6 @@ function renderPagination(totalProducts) {
     });
     paginationContainer.appendChild(pageBtn);
   }
-
-  // Next Button
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'btn ghost';
-  nextBtn.textContent = 'Next →';
-  nextBtn.disabled = currentPage === totalPages;
-  nextBtn.addEventListener('click', () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderProducts();
-      scrollToTop();
-    }
-  });
-  paginationContainer.appendChild(nextBtn);
 }
 
 function scrollToTop() {
@@ -182,27 +165,7 @@ function saveCart() {
   localStorage.setItem('tz_cart', JSON.stringify(cart));
 }
 
-// Login Modal
-function setupLoginModal() {
-  if (loginBtn) {
-    loginBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      loginModal.style.display = 'flex';
-    });
-  }
 
-  if (closeModal) {
-    closeModal.addEventListener('click', () => {
-      loginModal.style.display = 'none';
-    });
-  }
-
-  window.addEventListener('click', (e) => {
-    if (e.target === loginModal) {
-      loginModal.style.display = 'none';
-    }
-  });
-}
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', init);
