@@ -57,6 +57,37 @@ body{
   font-weight: 900;
 }
 
+.burger-menu {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #5C4B5E;
+  cursor: pointer;
+}
+
+.close-menu {
+  display: none; /* Hidden on desktop */
+}
+
+.nav-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998; /* Behind sidebar, above content */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
 /* nav */
 .main-nav a{
   margin-left:0;
@@ -699,7 +730,7 @@ html, body {
   .main-nav a {
     margin-left: 15px; /* Reduce gaps between links */
     margin-right: 0;
-    bottom: 20px;
+    bottom: 50px;
     font-size: 14px; /* Slightly smaller font to fit */
   }
   .main-nav a + a { margin-left: 15px; }
@@ -729,6 +760,9 @@ html, body {
   }
   .photo.small {
     left: -350px;
+  }
+  .photo.medium {
+    right: -90px;
   }
 
   /* Best Sellers */
@@ -781,24 +815,37 @@ html, body {
 /* --- MOBILE PHONES (Max-width: 768px) --- */
 @media screen and (max-width: 768px) {
   
-  .container { padding: 0 20px; }
+  .container {
+    padding: 0 20px;
+  }
 
-  /* Header: On very small screens, stack gently but keep style */
+  /* Header: Center logo on mobile */
   .header-inner {
-    justify-content: center;
-    gap: 100px;
+    display: flex;
+    justify-content: center; /* Center everything */
+    align-items: center;
+    position: relative;
+    height: 100px;
+    width: 100%;
   }
 
-  .logo { top: 10px; position: relative;} /* Shrink logo */
+  .brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 1;
+  }
 
-  .main-nav {
-    justify-content: center; /* Center links */
-    gap: 10px;
+  .logo {
+    height: 200px;
+    width: auto;
+    max-width: 150px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
   }
-  .main-nav a {
-    bottom: 5px;
-  }
-  .logo { height: 100px; width: auto; } /* Shrink logo slightly */
 
   /* Typography */
   .hero-title .script { font-size: 55px; }
@@ -806,6 +853,7 @@ html, body {
   
   /* Hero Image */
   .photo-stack { transform: scale(0.65); height: 320px; margin-bottom: -30px; margin-top: -60px;}
+  .photo.medium { left: -350px; } /* Hide medium photo on mobile */
 
   .category-pill { width: 50%; }
 
@@ -825,10 +873,144 @@ html, body {
   .site-footer { padding: 30px;}
   .footer-nav-grid {top: -100px; position: relative;}
   .footer-top { justify-content: space-around; gap: 30px;}
-  .footer-brand { bottom: 0; }
+  .footer-brand { bottom: 40px; }
   .lets-text { position: relative; top: auto; left: auto; margin-bottom: -10px; display: block; width: 100%; text-align: center;}
   .connect-header {align-self: center;}
   .footer-connect {top: -100px; position: relative; height: 100px;}
+
+  .burger-menu {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #5C4B5E;
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  /* Hide burger when sidebar is active */
+  .main-nav.active ~ .burger-menu,
+  .burger-menu.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* 2. Style the Sidebar (The Navigation) */
+  .main-nav {
+    display: none;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Show burger menu */
+  .burger-menu {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #5C4B5E;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    z-index: 1001;
+  }
+
+  /* Sidebar overlay */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .nav-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Sidebar styling */
+  .main-nav.active {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: #F6F2F8;
+    z-index: 999;
+    padding: 80px 30px 30px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  }
+  
+  .main-nav:not(.active) {
+    transform: translateX(100%);
+  }
+  .login-btn {
+    max-height: 50px;
+  }
+
+  /* Close button in sidebar */
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 40px;
+    color: #5C4B5E;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  /* Sidebar links */
+  .main-nav a {
+    margin: 15px 0 !important;
+    padding: 12px 0;
+    font-size: 18px;
+    text-align: left;
+    width: 100%;
+    position: static;
+    bottom: 0;
+    display: block;
+    border-bottom: 1px solid rgba(92, 75, 94, 0.1);
+  }
+  
+  .main-nav a:last-child {
+    border-bottom: none;
+  }
+  
+  .main-nav a + a {
+    margin-left: 0 !important;
+  }
+  
+  .main-nav .login-btn {
+    background: #B282B9;
+    color: white !important;
+    text-align: center;
+    border-radius: 11px;
+    padding: 12px 24px;
+    margin-top: 20px !important;
+  }
+  
+  .main-nav img {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
 }
 
 
@@ -1014,8 +1196,8 @@ html, body {
 
 /* Wider container for the profile modal */
 .profile-modal-content {
-    max-width: 900px; /* Wider than the login modal */
-    padding: 50px;
+    max-width: 1100px; /* Wider than the login modal */
+    height: 553px;
     background-color: #C9C4E2; /* Darker purple background from image */
     border-radius: 50px;
     color: #5C4B5E;
@@ -1035,10 +1217,17 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .profile-avatar {
     margin-bottom: 30px;
+}
+
+.profile-vector {
+    position: absolute;
+    top: 45px;
+    left: 455px;
 }
 
 /* Right Column */
@@ -1046,11 +1235,19 @@ html, body {
     flex: 2;
 }
 
+
+
 /* Form Layout */
 .profile-details-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.profile-profile{
+    position: relative;
+    top: -20px;
+    z-index: 1;
 }
 
 .form-row {
@@ -1064,7 +1261,7 @@ html, body {
 
 /* Custom Input Styling for Profile View */
 .profile-input {
-    background-color: #E2D2E8; /* Lighter purple input background */
+    background-color: #F1EFF7; /* Lighter purple input background */
     border-radius: 15px;
     padding: 15px 25px;
     font-weight: bold;
@@ -1073,9 +1270,18 @@ html, body {
     border: none;
 }
 
+.profile-highlight {
+    background-color: #E2D2E8;
+    position: relative;
+    bottom: 60px;
+    z-index: 0;
+    height: 20px;
+    width: 160px;
+}
+
 /* Buttons styling */
 .btn-profile-action {
-    background-color: #E2D2E8;
+    background-color: #F1EFF7;
     color: #B282B9;
     font-weight: bold;
     border: none;
@@ -1103,6 +1309,12 @@ html, body {
 
 /* Responsive tweaks for smaller screens */
 @media screen and (max-width: 768px) {
+  .profile-modal-content{
+        width: 90%;
+        height: auto;
+        padding: 20px;
+  }
+  .profile-vector
     .profile-container-grid {
         flex-direction: column;
         align-items: center;
@@ -1113,5 +1325,8 @@ html, body {
     .form-row {
         flex-direction: column;
         gap: 10px;
+    }
+    .profile-vector{
+        top: 25px; left: 350px;
     }
 }

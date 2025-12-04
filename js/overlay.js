@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const profileEmailField = document.getElementById('profile-email');
     const profilePasswordField = document.getElementById('profile-password');
 
+    // 3. New Edit Info Elements (ADD THESE LINES)
+    const profileInputs = document.querySelectorAll('.profile-input');
+    const editInfoBtn = document.getElementById('editInfoBtn');
 
     // --- Functions to Open/Close Modals ---
     function openModal(modal) {
@@ -87,12 +90,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close Profile via 'Sign Out' button
         signOutBtn.addEventListener('click', () => {
-             // Since data is temporary JS variables, closing it effectively resets it for the next login attempt
-            closeModal(profileModal);
-            alert("You have been signed out.");
-             // Optional: Clear the login forms for next time
-             loginForm.reset();
-        });
+         // Since data is temporary JS variables, closing it effectively resets it for the next login attempt
+        closeModal(profileModal);
+        alert("You have been signed out.");
+         // Optional: Clear the login forms for next time
+         loginForm.reset();
+    });
+
+    // 4. New 'Edit Info' / 'Save Changes' logic (ADD THIS BLOCK)
+    if (editInfoBtn) {
+        editInfoBtn.addEventListener('click', () => {
+            // Determine the current state based on the button text
+            const isEditing = editInfoBtn.textContent.trim() === 'Save Changes';
+
+            profileInputs.forEach(input => {
+                if (isEditing) {
+                    // If currently 'Save Changes', disable editing and set to read-only
+                    input.setAttribute('readonly', true);
+                } else {
+                    // If currently 'Edit Info', enable editing
+                    input.removeAttribute('readonly');
+                }
+            });
+
+            if (isEditing) {
+                // Switch back to "Edit Info" mode and alert success
+                editInfoBtn.textContent = 'Edit Info';
+                alert('Profile updated successfully!');
+            } else {
+                // Switch to "Save Changes" mode
+                editInfoBtn.textContent = 'Save Changes';
+                }
+            });
+        }
 
         // General Window Click (closes whichever modal is open if clicked outside content)
         window.addEventListener('click', (e) => {
