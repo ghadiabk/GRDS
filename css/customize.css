@@ -425,7 +425,7 @@ body {
   width: 170px;
   height: auto;
   display: block;
-  transform: translate(-2px, 1px);
+  transform: translateY(18px);
 }
 
 .footer-nav-grid {
@@ -577,13 +577,12 @@ body {
 
 /* Responsive tweaks */
 @media (max-width: 1100px) {
-  :root {
-    --pad-x: 40px;
-  }
+  :root { --pad-x: 40px; }
 
   .builder {
     flex-direction: column;
     padding: 56px 40px;
+    gap: 36px;
   }
 
   .preview-card,
@@ -592,10 +591,35 @@ body {
     width: 100%;
   }
 
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .main-nav a {
+    bottom: 0;
+    padding: 6px 0;
+  }
+
+  .logo {
+    height: 150px;
+    width: auto;
+    bottom: 0;
+  }
+
   .footer-top {
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    text-align: center;
   }
 
   .footer-nav-grid {
@@ -604,41 +628,86 @@ body {
 
   .footer-connect {
     align-items: center;
+    margin-left: 0;
   }
 }
 
-@media (max-width: 720px) {
-  :root {
-    --pad-x: 24px;
-  }
+@media (max-width: 768px) {
+  :root { --pad-x: 24px; }
 
-  .nav-bar {
+  .site-header {
     height: auto;
     padding: 12px 0;
   }
 
-  .nav-inner {
+  .header-inner {
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
   }
 
-  .nav-links {
-    gap: 16px;
-    flex-wrap: wrap;
+  .main-nav {
     justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .main-nav a {
+    position: static;
   }
 
   .builder {
     padding: 40px 24px;
   }
 
-  .pill-row {
-    gap: 10px;
-  }
+  .title-line.primary { font-size: 28px; }
+  .title-line.secondary { font-size: 30px; }
+
+  .pill-row { gap: 10px; }
 
   .footer-nav-grid {
     flex-direction: column;
     align-items: center;
+    gap: 24px;
+  }
+
+  .footer-col { align-items: center; }
+  .footer-col h4 { text-align: center; }
+  .footer-col a { text-align: center; }
+
+  .footer-line {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  :root { --pad-x: 16px; }
+
+  .builder {
+    padding: 32px 16px;
+  }
+
+  .inline-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inline-row .btn.primary,
+  .inline-row input {
+    width: 100%;
+  }
+
+  .footer-top {
+    gap: 20px;
+  }
+
+  .footer-logo-img {
+    width: 150px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-left: 0;
   }
 }
 
