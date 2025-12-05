@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "name": "Cake 1",
+    "price": 25,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake1.png",
+    "description": "Delicious cake item 1"
+  },
+  {
+    "id": 2,
+    "name": "Cake 2",
+    "price": 30,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake2.png",
+    "description": "Delicious cake item 2"
+  },
+  {
+    "id": 3,
+    "name": "Cake 3",
+    "price": 22,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake3.png",
+    "description": "Delicious cake item 3"
+  },
+  {
+    "id": 4,
+    "name": "Cake 4",
+    "price": 27,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake4.png",
+    "description": "Delicious cake item 4"
+  },
+  {
+    "id": 5,
+    "name": "Cake 5",
+    "price": 18,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake5.png",
+    "description": "Delicious cake item 5"
+  },
+  {
+    "id": 6,
+    "name": "Cake 6",
+    "price": 32,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake6.png",
+    "description": "Delicious cake item 6"
+  },
+  {
+    "id": 7,
+    "name": "Cake 7",
+    "price": 20,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake7.png",
+    "description": "Delicious cake item 7"
+  },
+  {
+    "id": 8,
+    "name": "Cake 8",
+    "price": 26,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake8.png",
+    "description": "Delicious cake item 8"
+  },
+  {
+    "id": 9,
+    "name": "Cake 9",
+    "price": 29,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake9.png",
+    "description": "Delicious cake item 9"
+  },
+  {
+    "id": 10,
+    "name": "Cake 10",
+    "price": 24,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake10.png",
+    "description": "Delicious cake item 10"
+  },
+  {
+    "id": 11,
+    "name": "Cake 11",
+    "price": 31,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake11.png",
+    "description": "Delicious cake item 11"
+  },
+  {
+    "id": 12,
+    "name": "Cake 12",
+    "price": 28,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake12.png",
+    "description": "Delicious cake item 12"
+  },
+  {
+    "id": 13,
+    "name": "Cake 13",
+    "price": 23,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake13.png",
+    "description": "Delicious cake item 13"
+  },
+  {
+    "id": 14,
+    "name": "Cake 14",
+    "price": 34,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake14.png",
+    "description": "Delicious cake item 14"
+  },
+  {
+    "id": 15,
+    "name": "Cake 15",
+    "price": 19,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake15.png",
+    "description": "Delicious cake item 15"
+  },
+  {
+    "id": 16,
+    "name": "Cake 16",
+    "price": 35,
+    "category": "cakes",
+    "image": "assets/img/products/cake/Cake16.png",
+    "description": "Delicious cake item 16"
+  }
+]
