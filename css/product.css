@@ -228,7 +228,6 @@ body {
 .btn.add {
   display: flex;
   margin: 0 auto 20px auto;
-  background: var(--card);
   border-radius: 20px;
   padding: 10px 0;
   width: 152px;
@@ -237,43 +236,60 @@ body {
   justify-content: center;
   align-items: center;
   border: none;
+  background: #F1EFF7;  
+  color: #5C4B5E;      
   cursor: pointer;
+  transition: background 0.3s, color 0.3s;
 }
 
+
+.btn.add.added {
+  background: var(--accent); 
+  color: #fff;               
+  cursor: not-allowed;
+}
+
+
 .pagination {
-  margin-top: 50px;
+  margin-top: 30px;
   display: inline-flex;
   justify-content: center;
-  gap: 0px;
-  background: var(--white);
-  padding: 5px;
+  align-items: center;
+  background: var(--card);        /* Light gray background */
+  padding: 4px 8px;
   border-radius: 50px;
-  border: 2px solid var(--accent);
-  margin-left: auto;
-  margin-right: auto;
+  gap: 8px;
 }
 
 .pagination .btn.ghost {
   background: transparent;
   border: none;
   border-radius: 50px;
-  padding: 8px 12px;
-  color: var(--accent);
+  padding: 4px 10px;
+  min-width: 28px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-sans);
+  font-size: 18px;
   font-weight: bold;
+  letter-spacing: 0.05em;
+ 
+  color: var(--muted);
   cursor: pointer;
-  min-width: 35px;
 }
 
 .pagination .btn.ghost:hover {
-  background: var(--accent-2);
-  color: var(--white);
+  background: var(--accent-2); 
 }
 
 .pagination .btn.ghost.active {
-  background: var(--accent);
-  color: var(--white);
+  background: var(--accent-2); 
+  color: var(--muted);
 }
-/* --- FOOTER (MATCHING HOMEPAGE) --- */
+
 .site-footer {
   padding: 80px 0 0;
   background: #fff;

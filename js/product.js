@@ -10,26 +10,21 @@ let cart = JSON.parse(localStorage.getItem('tz_cart')) || [];
 let currentPage = 1;
 const itemsPerPage = 8;
 
-// ---------- PRODUCT DATA (Cake1 → Cake16) ----------
-const productsData = [];
-
-for (let i = 1; i <= 16; i++) {
-  productsData.push({
-    id: i,
-    name: `Cake ${i}`,
-    price: 20 + (i % 5) * 5, // random price variation
-    category: 'cakes',
-    image: `assets/img/products/cake/Cake${i}.png`,
-    description: `Delicious Cake number ${i}`
-  });
-}
-
 // ---------- INIT ----------
-function init() {
-  allProducts = productsData;
+async function init() {
+  await loadProductsFromJSON();
   setupCategoryFilters();
   renderProducts();
   updateCartCount();
+}
+
+async function loadProductsFromJSON() {
+  try {
+    const res = await fetch("json/products.json");
+    allProducts = await res.json();
+  } catch (error) {
+    console.error("❌ Failed to load products.json", error);
+  }
 }
 
 // Category Filter Setup
@@ -38,9 +33,12 @@ function setupCategoryFilters() {
     btn.addEventListener('click', () => {
       categoryButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      activeCategory = btn.textContent.toLowerCase() === 'all'
-        ? 'all'
-        : btn.textContent.toLowerCase();
+
+      activeCategory =
+        btn.textContent.toLowerCase() === 'all'
+          ? 'all'
+          : btn.textContent.toLowerCase();
+
       currentPage = 1;
       renderProducts();
     });
@@ -49,9 +47,10 @@ function setupCategoryFilters() {
 
 // Render Products + Pagination
 function renderProducts() {
-  const filtered = activeCategory === 'all'
-    ? allProducts
-    : allProducts.filter(p => p.category === activeCategory);
+  const filtered =
+    activeCategory === 'all'
+      ? allProducts
+      : allProducts.filter(p => p.category === activeCategory);
 
   const start = (currentPage - 1) * itemsPerPage;
   const paginated = filtered.slice(start, start + itemsPerPage);
@@ -65,7 +64,7 @@ function renderProducts() {
     card.className = 'card';
     card.innerHTML = `
       <div class="card-media">
-        <img src="${product.image}" alt="${product.name}" 
+        <img src="${product.image}" alt="${product.name}"
              onerror="this.src='assets/img/products/cake/Cake1.png'">
       </div>
 
@@ -74,10 +73,11 @@ function renderProducts() {
         <span class="price">$${product.price}</span>
       </div>
 
-      <button class="btn add" data-id="${product.id}"
-        style="background: #F1EFF7; color: #5C4B5E; cursor: pointer;">
-        Add to Cart
-      </button>
+<button class="btn add ${inCart ? 'added' : ''}" data-id="${product.id}" ${inCart ? 'disabled' : ''}>
+    ${inCart ? 'Added to Cart' : 'Add to Cart'}
+</button>
+
+
     `;
 
     card.querySelector('.btn.add').addEventListener('click', () => {
@@ -121,7 +121,9 @@ function renderPagination(totalProducts) {
 }
 
 function scrollToTop() {
-  document.querySelector('.products').scrollIntoView({ behavior: 'smooth' });
+  document.querySelector('.products').scrollIntoView({
+    behavior: 'smooth'
+  });
 }
 
 // Add to Cart
@@ -141,8 +143,10 @@ function addToCart(product) {
 
 // Update Cart Badge
 function updateCartCount() {
-  const count = cart.reduce((total, item) => total + item.quantity, 0);
-  const cartIcon = document.querySelector('.main-nav a img[alt="Shopping Cart"]').parentElement;
+  const count = cart.reduce((t, item) => t + item.quantity, 0);
+  const cartIcon = document
+    .querySelector('.main-nav a img[alt="Shopping Cart"]')
+    .parentElement;
 
   let badge = cartIcon.querySelector('.cart-badge');
 
