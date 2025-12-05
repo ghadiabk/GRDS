@@ -5,7 +5,7 @@ const paginationContainer = document.querySelector('.pagination');
 
 // State
 let allProducts = [];
-let activeCategory = 'all';
+let activeCategory = 'cakes';
 let cart = JSON.parse(localStorage.getItem('tz_cart')) || [];
 let currentPage = 1;
 const itemsPerPage = 8;
@@ -29,32 +29,28 @@ async function loadProductsFromJSON() {
 
 // Category Filter Setup
 function setupCategoryFilters() {
+  const categoryButtons = document.querySelectorAll('.category-pill .cat');
+
   categoryButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       categoryButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      activeCategory =
-        btn.textContent.toLowerCase() === 'all'
-          ? 'all'
-          : btn.textContent.toLowerCase();
-
+      activeCategory = btn.textContent.toLowerCase();
       currentPage = 1;
       renderProducts();
     });
   });
 }
 
-// Render Products + Pagination
+// Render Products
 function renderProducts() {
-  const filtered =
-    activeCategory === 'all'
-      ? allProducts
-      : allProducts.filter(p => p.category === activeCategory);
+  const filtered = allProducts.filter(p => p.category === activeCategory);
 
   const start = (currentPage - 1) * itemsPerPage;
   const paginated = filtered.slice(start, start + itemsPerPage);
 
+  const cardsGrid = document.querySelector('.cards-grid');
   cardsGrid.innerHTML = '';
 
   paginated.forEach(product => {
@@ -64,25 +60,18 @@ function renderProducts() {
     card.className = 'card';
     card.innerHTML = `
       <div class="card-media">
-        <img src="${product.image}" alt="${product.name}"
-             onerror="this.src='assets/img/products/cake/Cake1.png'">
+        <img src="${product.image}" alt="${product.name}" >
       </div>
-
       <div class="card-info">
         <span class="card-title">${product.name}</span>
         <span class="price">$${product.price}</span>
       </div>
-
-<button class="btn add ${inCart ? 'added' : ''}" data-id="${product.id}" ${inCart ? 'disabled' : ''}>
-    ${inCart ? 'Added to Cart' : 'Add to Cart'}
-</button>
-
-
+      <button class="btn add ${inCart ? 'added' : ''}" data-id="${product.id}" ${inCart ? 'disabled' : ''}>
+        ${inCart ? 'Added to Cart' : 'Add to Cart'}
+      </button>
     `;
 
-    card.querySelector('.btn.add').addEventListener('click', () => {
-      addToCart(product);
-    });
+    card.querySelector('.btn.add').addEventListener('click', () => addToCart(product));
 
     cardsGrid.appendChild(card);
   });
