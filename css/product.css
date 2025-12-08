@@ -85,6 +85,28 @@ body {
 .main-nav a:hover {
   color: white;
 }
+.products-heading {
+  font-family: 'Actionia', 'Actonia', 'Pacifico', cursive;
+  font-size: 30px;
+  letter-spacing: 0;
+  text-transform: none;
+  margin: 0 auto 18px auto;
+  display: inline-flex;           /* text + icon treated as one centered unit */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;                       /* space between text and icon */
+  color: #6b4c86;
+  padding-right: 0;               /* no extra shift */
+  transform: translateY(-10px);
+}
+
+.products-heading-icon {
+  position: static;
+  transform: none;
+  width: 28px;
+  height: auto;
+  margin-top: -4px;               /* tiny lift like in Figma */
+}
 
 .main-nav img {
   height: 20px;
