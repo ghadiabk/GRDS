@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Cake 1",
+    "name": "Pot Flower Cake",
     "price": 25,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake1.png",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "name": "Cake 2",
+    "name": "Melting Berry Cake",
     "price": 30,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake2.png",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "name": "Cake 3",
+    "name": "Comic Cake",
     "price": 22,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake3.png",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "name": "Cake 4",
+    "name": "Comic Cake",
     "price": 27,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake4.png",
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "name": "Cake 5",
+    "name": "Pot Flower Cake",
     "price": 18,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake5.png",
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "name": "Cake 6",
+    "name": "Melting Berry Cake",
     "price": 32,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake6.png",
@@ -49,7 +49,7 @@
   },
   {
     "id": 7,
-    "name": "Cake 7",
+    "name": "Comic Cake",
     "price": 20,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake7.png",
@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "name": "Cake 8",
+    "name": "Comic Cake",
     "price": 26,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake8.png",
@@ -65,7 +65,7 @@
   },
   {
     "id": 9,
-    "name": "Cake 9",
+    "name": "Pot Flower Berry Cake ",
     "price": 29,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake9.png",
@@ -73,7 +73,7 @@
   },
   {
     "id": 10,
-    "name": "Cake 10",
+    "name": "Melting Berry Cake",
     "price": 24,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake10.png",
@@ -81,7 +81,7 @@
   },
   {
     "id": 11,
-    "name": "Cake 11",
+    "name": "Pink cake",
     "price": 31,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake11.png",
@@ -89,7 +89,7 @@
   },
   {
     "id": 12,
-    "name": "Cake 12",
+    "name": "Little pink cake",
     "price": 28,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake12.png",
@@ -97,7 +97,7 @@
   },
   {
     "id": 13,
-    "name": "Cake 13",
+    "name": "Cake with strawberries",
     "price": 23,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake13.png",
@@ -105,7 +105,7 @@
   },
   {
     "id": 14,
-    "name": "Cake 14",
+    "name": "Pot Flower Berry Cake ",
     "price": 34,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake14.png",
@@ -113,7 +113,7 @@
   },
   {
     "id": 15,
-    "name": "Cake 15",
+    "name": "Cake",
     "price": 19,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake15.png",
@@ -121,10 +121,157 @@
   },
   {
     "id": 16,
-    "name": "Cake 16",
+    "name": "Birthday Cake",
     "price": 35,
     "category": "cakes",
     "image": "assets/img/products/cake/Cake16.png",
     "description": "Delicious cake item 16"
-  }
+  },
+  {
+    "id": 17,
+    "name": "Pasteries 1",
+    "price": 12,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries1.png",
+    "description": "Delicious pasteries item 1"
+  },
+  {
+    "id": 18,
+    "name": "Pasteries 2",
+    "price": 14,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries2.png",
+    "description": "Delicious pasteries item 2"
+  },
+  {
+    "id": 19,
+    "name": "Pasteries 3",
+    "price": 11,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries3.png",
+    "description": "Delicious pasteries item 3"
+  },
+  {
+    "id": 20,
+    "name": "Pasteries 4",
+    "price": 16,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries4.png",
+    "description": "Delicious pasteries item 4"
+  },
+  {
+    "id": 21,
+    "name": "Pasteries 5",
+    "price": 13,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries5.png",
+    "description": "Delicious pasteries item 5"
+  },
+  {
+    "id": 22,
+    "name": "Pasteries 6",
+    "price": 15,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries6.png",
+    "description": "Delicious pasteries item 6"
+  },
+  {
+    "id": 23,
+    "name": "Pasteries 7",
+    "price": 10,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries7.png",
+    "description": "Delicious pasteries item 7"
+  },
+  {
+    "id": 24,
+    "name": "Pasteries 8",
+    "price": 17,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries8.png",
+    "description": "Delicious pasteries item 8"
+  },
+  {
+    "id": 25,
+    "name": "Pasteries 9",
+    "price": 14,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries9.png",
+    "description": "Delicious pasteries item 9"
+  },
+  {
+    "id": 26,
+    "name": "Pasteries 10",
+    "price": 12,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries10.png",
+    "description": "Delicious pasteries item 10"
+  },
+  {
+    "id": 27,
+    "name": "Pasteries 11",
+    "price": 16,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries11.png",
+    "description": "Delicious pasteries item 11"
+  },
+  {
+    "id": 28,
+    "name": "Pasteries 12",
+    "price": 18,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries12.png",
+    "description": "Delicious pasteries item 12"
+  },
+  {
+    "id": 29,
+    "name": "Pasteries 13",
+    "price": 11,
+    "category": "pasteries",
+    "image": "assets/img/products/Pasteries/Pasteries13.png",
+    "description": "Delicious pasteries item 13"
+  },
+
+  {
+  "id": 33,
+  "name": "Lavendar Iced Coffee",
+  "price": 8,
+  "category": "drinks",
+  "image": "assets/img/products/drinks/drink1.png",
+  "description": "Refreshing drink item 1"
+},
+{
+  "id": 34,
+  "name": "Chocolate Mou",
+  "price": 10,
+  "category": "drinks",
+  "image": "assets/img/products/drinks/drink2.png",
+  "description": "Refreshing drink item 2"
+},
+{
+  "id": 35,
+  "name": "Herbal Tea",
+  "price": 9,
+  "category": "drinks",
+  "image": "assets/img/products/drinks/drink3.png",
+  "description": "Refreshing drink item 3"
+}, 
+{
+  "id": 36,
+  "name": "Cupcake 1",
+  "price": 7,
+  "category": "cupcakes",
+  "image": "assets/img/products/cupcakes/Cupcake1.png",
+  "description": "Delicious cupcake item 1"
+},
+{
+  "id": 37,
+  "name": "Cupcake 2",
+  "price": 8,
+  "category": "cupcakes",
+  "image": "assets/img/products/cupcakes/Cupcake2.png",
+  "description": "Delicious cupcake item 2"
+}
+
+
 ]
