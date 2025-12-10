@@ -91,12 +91,12 @@ body {
   letter-spacing: 0;
   text-transform: none;
   margin: 0 auto 18px auto;
-  display: inline-flex;           /* text + icon treated as one centered unit */
+  display: inline-flex;          
   align-items: center;
   justify-content: center;
-  gap: 8px;                       /* space between text and icon */
+  gap: 8px;                       
   color: #6b4c86;
-  padding-right: 0;               /* no extra shift */
+  padding-right: 0; 
   transform: translateY(-10px);
 }
 
@@ -105,7 +105,7 @@ body {
   transform: none;
   width: 28px;
   height: auto;
-  margin-top: -4px;               /* tiny lift like in Figma */
+  margin-top: -4px; 
 }
 
 .main-nav img {
