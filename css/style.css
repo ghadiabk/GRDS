@@ -235,6 +235,10 @@ body{
   display: inline-block;
   text-align: center;
 }
+.btn.white-pill:hover {
+  background: #B282B9;
+  color: #fff;
+}
 
 /* --- PHOTO STACK (The Main Fix) --- */
 .photo-stack {
@@ -330,7 +334,7 @@ body{
 .price { font-weight: bold; color: #5C4B5E;}
 .btn.add { display: flex; margin: 0 auto; background: #F1EFF7; border-radius: 20px; padding: 10px 0; width: 152px; height: 34px; font-weight: bold; margin-bottom: 20px; justify-content: center; align-items: center; border: none; color: #000;}
 .btn.ghost { background: white; margin-top: 60px; font-size: 18px; padding: 12px 40px; border-radius: 30px; color: #B282B9; border: none; width: 153px; height: 41px;}
-
+.btn.ghost:hover { background: #B282B9; color: white; cursor: pointer;}
 
 
 /* who */
@@ -347,7 +351,7 @@ body{
 .who-card {background-color: #f3ebf6; border-radius: 15px; position: relative; width: 85%;}
 .who-card p {color: #5e4c6c; font-size: 1.1em; margin-bottom: 25px;}
 .btn {display: inline-block; background-color: #ffffff; color: #B282B9; padding-top: 8px; border-radius: 20px; text-decoration: none; font-weight: bold; width: 155px; height: 36px; margin-top: 10px; text-align: center;}
-
+.btn:hover { background-color: #B282B9; color: white; cursor: pointer; }
 /* --- Photo Grid Styles --- */
 .who-photos {position: relative; height: 480px; margin-top: 30px;}
 .rotated {position: absolute; width: 500px; height: 100%; padding: 15px;}
@@ -386,8 +390,9 @@ body{
 .customize-cake-description { font-size: 20px; color: #5C4B5E; font-family: 'Inter'; font-weight: bold; width: 300px; text-align: center; bottom: 45px; width: 70%; align-self: center; padding-bottom: 70px;}
 
 .customize-now-button {width: 172px; height: 31px; background-color: #ffffff; color: #B282B9; border: none; border-radius: 25px; font-size: 14px; cursor: pointer; font-family: 'Inter'; font-weight: bold; position: relative; bottom: 30px; align-self: center; margin-bottom: 10px;}
-.customize-now-button a { text-decoration: none; color: #B282B9; }
-
+.customize-now-button a { text-decoration: none; color: #B282B9; width: 100%;}
+.customize-now-button a:hover { color: white; }
+.customize-now-button:hover { background-color: #B282B9; color: white; }
 /* .customize-cake-image-container {align-items: center;}
 .customize-cake-image-container img {width: 350px; height: 440px; display: block; border-radius: 3px; position: relative; top: 30px;} */
 
@@ -1055,8 +1060,8 @@ html, body {
   position: absolute;
   top: 20px;
   right: 30px;
-  color: #B282B9;
-  font-size: 30px;
+  color: #000;
+  font-size: 40px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -1074,7 +1079,7 @@ html, body {
   margin-bottom: 10px;
 }
 
-.modal-titles { margin-bottom: 30px; position: relative; }
+.modal-titles { margin-bottom: 30px; position: relative; margin-top: 30px;}
 
 .modal-script {
   font-family: var(--font-script);
@@ -1143,7 +1148,7 @@ html, body {
   margin: 10px auto 0;
   transition: transform 0.2s;
 }
-.btn-modal-login:hover { transform: scale(1.05); }
+.btn-modal-login:hover {color: #fff; background-color: #B282B9;}
 
 /* Footer Links */
 .forgot-link {
@@ -1235,6 +1240,9 @@ html, body {
     flex: 2;
 }
 
+.profile-titles {
+  display: flex; gap: 20px;
+}
 
 
 /* Form Layout */
@@ -1277,6 +1285,7 @@ html, body {
     z-index: 0;
     height: 20px;
     width: 160px;
+    left: 60px;
 }
 
 /* Buttons styling */

@@ -534,3 +534,321 @@
     padding-left: 0;
   }
 }
+
+
+/* --- LOGIN MODAL STYLES --- */
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(92, 75, 94, 0.5); /* Muted purple semi-transparent */
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px); /* Adds a blur effect to background */
+}
+
+.modal-content {
+  background-color: #F1EFF7; /* Light Lavender Background */
+  border-radius: 40px;
+  width: 90%;
+  max-width: 500px;
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+/* Close Button */
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #000;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close-modal:hover { color: #5C4B5E; }
+
+/* Decorations */
+.modal-star { position: absolute; width: 30px; }
+.star-1 { top: 60px; left: 40px; transform: rotate(-15deg); }
+.star-2 { bottom: 120px; right: 40px; width: 40px; }
+
+/* Header & Logo */
+.modal-logo {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.modal-titles { margin-bottom: 30px; position: relative; margin-top: 30px;}
+
+.modal-script {
+  font-family: var(--font-script);
+  font-size: 51px;
+  color: #5C4B5E;
+  display: block;
+  line-height: 1;
+}
+
+.modal-brand-name {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 40px;
+  color: #5C4B5E;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  bottom: 10px;
+}
+
+/* The purple highlight bar behind the text */
+.modal-underline {
+  display: block;
+  width: 269px;
+  height: 15px;
+  background-color: #E2D2E8;
+  margin: -12px auto 0; /* Pulls it up behind text */
+  position: relative;
+  z-index: 1;
+  bottom: 25px;
+}
+
+/* Inputs */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: none;
+  background: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #5C4B5E;
+  outline: none;
+  font-weight: bold;
+}
+.modal-input::placeholder { color: #B9A8C0; font-weight: bold; }
+
+/* Login Button */
+.btn-modal-login {
+  background: #FFFFFF;
+  color: #B282B9;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 95px;
+  height: 30px;
+  margin: 10px auto 0;
+  transition: transform 0.2s;
+}
+.btn-modal-login:hover { transform: scale(1.05); }
+
+/* Footer Links */
+.forgot-link {
+  display: block;
+  color: #B282B9;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.modal-socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-socials img {
+  width: 24px;
+  height: 24px;
+}
+
+.social-btn {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 20px;
+}
+.social-btn.google { color: #EA4335; }
+.social-btn.facebook { color: #1877F2; }
+
+.signup-text {
+  font-size: 12px;
+  color: #B282B9;
+  font-weight: bold;
+}
+.signup-link {
+  color: #5C4B5E;
+  text-decoration: underline;
+}
+
+/* --- NEW MY PROFILE MODAL STYLES --- */
+
+/* Wider container for the profile modal */
+.profile-modal-content {
+    max-width: 1100px; /* Wider than the login modal */
+    height: 553px;
+    background-color: #C9C4E2; /* Darker purple background from image */
+    border-radius: 50px;
+    color: #5C4B5E;
+}
+
+.profile-container-grid {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* Left Column */
+.profile-left-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.profile-avatar {
+    margin-bottom: 30px;
+}
+
+.profile-vector {
+    position: absolute;
+    top: 45px;
+    left: 455px;
+}
+
+/* Right Column */
+.profile-right-col {
+    flex: 2;
+}
+
+.profile-titles {
+  display: flex; gap: 20px;
+}
+
+
+/* Form Layout */
+.profile-details-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-profile{
+    position: relative;
+    top: -20px;
+    z-index: 1;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row-full {
+    width: 100%;
+}
+
+/* Custom Input Styling for Profile View */
+.profile-input {
+    background-color: #F1EFF7; /* Lighter purple input background */
+    border-radius: 15px;
+    padding: 15px 25px;
+    font-weight: bold;
+    color: #5C4B5E;
+    width: 100%;
+    border: none;
+}
+
+.profile-highlight {
+    background-color: #E2D2E8;
+    position: relative;
+    bottom: 60px;
+    z-index: 0;
+    height: 20px;
+    width: 160px;
+    left: 60px;
+}
+
+/* Buttons styling */
+.btn-profile-action {
+    background-color: #F1EFF7;
+    color: #B282B9;
+    font-weight: bold;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: 0.2s;
+}
+
+.btn-profile-action:hover {
+    background-color: #ffffff;
+}
+
+.btn-profile-action.small {
+    padding: 10px 25px;
+    font-size: 14px;
+}
+
+.profile-bottom-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* Responsive tweaks for smaller screens */
+@media screen and (max-width: 768px) {
+  .profile-modal-content{
+        width: 90%;
+        height: auto;
+        padding: 20px;
+  }
+  .profile-vector
+    .profile-container-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-right-col {
+        width: 100%;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .profile-vector{
+        top: 25px; left: 350px;
+    }
+}

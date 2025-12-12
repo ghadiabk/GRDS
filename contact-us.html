@@ -215,5 +215,92 @@
       </div>
     </div>
   </footer>
+
+  <div id="loginModal" class="modal-overlay">
+  <div class="modal-content">
+    
+    <span class="close-modal">&times;</span>
+
+    <img src="assets/img/Star-custom.png" class="modal-star star-1" alt="star">
+    <img src="assets/img/Star-2.png" class="modal-star star-2" alt="star">
+
+
+    <div class="modal-titles">
+      <span class="modal-script">Welcome to</span>
+      <h2 class="modal-brand-name">Un Petit Gato</h2>
+      <span class="modal-underline"></span>
+    </div>
+
+    <form class="login-form">
+      <input type="text" placeholder="Username or email address" class="modal-input" required>
+      <input type="password" placeholder="Password" class="modal-input" required>
+      
+      <button type="submit" class="btn-modal-login">Login</button>
+    </form>
+
+    <div class="modal-footer">
+      <a href="#" class="forgot-link">Forgot Login Detail?</a>
+      
+      <div class="modal-socials">
+        <img src="assets/img/login-google.png" alt="">
+        <img src="assets/img/login-facebook.png" alt="">
+      </div>
+
+      <p class="signup-text">
+        Don't have an account? <a href="#" class="signup-link">Sign up Now</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+<div id="profileModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content profile-modal-content">
+        <span class="close-modal close-profile-modal">×</span>
+        
+        <div class="profile-container-grid">
+            <div class="profile-left-col">
+                <div class="profile-avatar">
+                    <img src="assets/img/pfp-login.png" alt="">
+                </div>
+                <button class="btn-profile-action">Change Profile</button>
+            </div>
+
+            <div class="profile-right-col">
+              <img src="assets/img/Vector 13.png" alt="" class="profile-vector">
+                <h2 class="profile-titles" style="text-align: left; margin-bottom: 20px;">
+                    <span class="modal-brand-name" style="font-size: 30px;">My</span>
+                    <span class="modal-script profile-profile" style="font-size: 55px;">Profile</span>
+                </h2>
+                <div class="profile-highlight"><span></span></div>
+                <form class="profile-details-form">
+                    <div class="form-row">
+                        <input type="text" id="profile-firstname" class="modal-input profile-input" value="John" readonly>
+                        <input type="text" id="profile-lastname" class="modal-input profile-input" value="Doe" readonly>
+                    </div>
+
+                    <div class="form-row">
+                        <input type="text" id="profile-phone" class="modal-input profile-input" value="76123456" readonly>
+                        <input type="password" id="profile-password" class="modal-input profile-input" value="password123" readonly>
+                    </div>
+
+                    <div class="form-row-full">
+                        <input type="text" id="profile-address" class="modal-input profile-input" value="Downtown, Beirut, Lebanon" readonly style="width: 100%;">
+                     </div>
+
+                    <div class="form-row-full">
+                        <input type="email" id="profile-email" class="modal-input profile-input" value="email@example.com" readonly style="width: 100%;">
+                    </div>
+
+                    <div class="profile-bottom-actions">
+                         <button type="button" id="editInfoBtn" class="btn-profile-action small">Edit Info</button>
+                         <button type="button" id="signOutBtn" class="btn-profile-action small">Sign Out</button>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+  <script src="js/home.js"></script>
+  <script src="js/overlay.js"></script>
 </body>
 </html>

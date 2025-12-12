@@ -536,45 +536,34 @@ body {
 
 /* --- LOGIN MODAL STYLES --- */
 .modal-overlay {
-  display: none;
-  /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(92, 75, 94, 0.5);
-  /* Muted purple semi-transparent */
+  background-color: rgba(92, 75, 94, 0.5); /* Muted purple semi-transparent */
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(5px);
-  /* Adds a blur effect to background */
+  backdrop-filter: blur(5px); /* Adds a blur effect to background */
 }
 
 .modal-content {
-  background-color: #F1EFF7;
-  /* Light Lavender Background */
+  background-color: #F1EFF7; /* Light Lavender Background */
   border-radius: 40px;
   width: 90%;
   max-width: 500px;
   padding: 40px;
   text-align: center;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   animation: slideDown 0.4s ease;
 }
 
 @keyframes slideDown {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
 }
 
 /* Close Button */
@@ -582,34 +571,18 @@ body {
   position: absolute;
   top: 20px;
   right: 30px;
-  color: #B282B9;
-  font-size: 30px;
+  color: #000;
+  font-size: 40px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
-
-.close-modal:hover {
-  color: #5C4B5E;
-}
+.close-modal:hover { color: #5C4B5E; }
 
 /* Decorations */
-.modal-star {
-  position: absolute;
-  width: 30px;
-}
-
-.star-1 {
-  top: 60px;
-  left: 40px;
-  transform: rotate(-15deg);
-}
-
-.star-2 {
-  bottom: 120px;
-  right: 40px;
-  width: 40px;
-}
+.modal-star { position: absolute; width: 30px; }
+.star-1 { top: 60px; left: 40px; transform: rotate(-15deg); }
+.star-2 { bottom: 120px; right: 40px; width: 40px; }
 
 /* Header & Logo */
 .modal-logo {
@@ -617,10 +590,7 @@ body {
   margin-bottom: 10px;
 }
 
-.modal-titles {
-  margin-bottom: 30px;
-  position: relative;
-}
+.modal-titles { margin-bottom: 30px; position: relative; margin-top: 30px;}
 
 .modal-script {
   font-family: var(--font-script);
@@ -647,8 +617,7 @@ body {
   width: 269px;
   height: 15px;
   background-color: #E2D2E8;
-  margin: -12px auto 0;
-  /* Pulls it up behind text */
+  margin: -12px auto 0; /* Pulls it up behind text */
   position: relative;
   z-index: 1;
   bottom: 25px;
@@ -674,11 +643,7 @@ body {
   outline: none;
   font-weight: bold;
 }
-
-.modal-input::placeholder {
-  color: #B9A8C0;
-  font-weight: bold;
-}
+.modal-input::placeholder { color: #B9A8C0; font-weight: bold; }
 
 /* Login Button */
 .btn-modal-login {
@@ -694,10 +659,7 @@ body {
   margin: 10px auto 0;
   transition: transform 0.2s;
 }
-
-.btn-modal-login:hover {
-  transform: scale(1.05);
-}
+.btn-modal-login:hover { transform: scale(1.05); }
 
 /* Footer Links */
 .forgot-link {
@@ -730,24 +692,17 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   font-size: 20px;
 }
-
-.social-btn.google {
-  color: #EA4335;
-}
-
-.social-btn.facebook {
-  color: #1877F2;
-}
+.social-btn.google { color: #EA4335; }
+.social-btn.facebook { color: #1877F2; }
 
 .signup-text {
   font-size: 12px;
   color: #B282B9;
   font-weight: bold;
 }
-
 .signup-link {
   color: #5C4B5E;
   text-decoration: underline;
@@ -796,6 +751,9 @@ body {
     flex: 2;
 }
 
+.profile-titles {
+  display: flex; gap: 20px;
+}
 
 
 /* Form Layout */
@@ -838,6 +796,7 @@ body {
     z-index: 0;
     height: 20px;
     width: 160px;
+    left: 60px;
 }
 
 /* Buttons styling */
@@ -870,6 +829,12 @@ body {
 
 /* Responsive tweaks for smaller screens */
 @media screen and (max-width: 768px) {
+  .profile-modal-content{
+        width: 90%;
+        height: auto;
+        padding: 20px;
+  }
+  .profile-vector
     .profile-container-grid {
         flex-direction: column;
         align-items: center;
@@ -880,5 +845,8 @@ body {
     .form-row {
         flex-direction: column;
         gap: 10px;
+    }
+    .profile-vector{
+        top: 25px; left: 350px;
     }
 }
