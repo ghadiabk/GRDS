@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Sweet Bakery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Progress Bar -->
+    <div class="progress-wrapper">
+      <div class="progress-bar">
+        <div class="progress-step active">
+          <span>Checkout</span>
+          <div class="progress-line"></div>
+        </div>
+        <div class="progress-step">
+          <span>Payment & Shipping</span>
+          <div class="progress-line"></div>
+        </div>
+        <div class="progress-step">
+          <span>Delivery</span>
+          <div class="progress-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Left Side - Cart -->
+      <div class="cart-section">
+        <h1>Cart</h1>
+        
+        <!-- Table Headers -->
+        <div class="cart-headers">
+          <span class="header-product">Product</span>
+          <span class="header-price">Price</span>
+          <span class="header-quantity">Quantity</span>
+          <span class="header-total">Total</span>
+        </div>
+
+        <!-- Cart Item 1 -->
+        <div class="cart-item">
+          <button class="remove-btn">×</button>
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=100&h=100&fit=crop" alt="Knitting Berry Cake">
+          <div class="item-info">
+            <div class="item-name">Knitting Berry Cake</div>
+            <div class="item-size">Size 16cm</div>
+          </div>
+          <div class="item-price">$15.00</div>
+          <div class="item-quantity">
+            <button class="qty-minus">−</button>
+            <span>1</span>
+            <button class="qty-plus">+</button>
+          </div>
+          <div class="item-total">$15.00</div>
+        </div>
+        <button class="add-note">Add A Note</button>
+
+        <!-- Cart Item 2 -->
+        <div class="cart-item">
+          <button class="remove-btn">×</button>
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=100&h=100&fit=crop" alt="Red Flower Cake">
+          <div class="item-info">
+            <div class="item-name">Red Flower Cake</div>
+            <div class="item-size">Size 16cm</div>
+          </div>
+          <div class="item-price">$15.00</div>
+          <div class="item-quantity">
+            <button class="qty-minus">−</button>
+            <span>1</span>
+            <button class="qty-plus">+</button>
+          </div>
+          <div class="item-total">$15.00</div>
+        </div>
+        <button class="add-note">Add A Note</button>
+      </div>
+
+      <!-- Right Side - Order Summary -->
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-item">
+          <span>Red Flower Cake</span>
+          <span>$15.00</span>
+        </div>
+        <div class="summary-item">
+          <span>Knitting Berry Cake</span>
+          <span>$15.00</span>
+        </div>
+        <div class="summary-item">
+          <span>Delivery Charge</span>
+          <span>$3.00</span>
+        </div>
+        <div class="summary-total">
+          <span>Total</span>
+          <span>$33.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

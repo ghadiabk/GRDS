@@ -1,0 +1,374 @@
+:root {
+  --bg: #F6F2F8;
+  --muted: #5C4B5E;
+  --accent: #B282B9;
+  --accent-2: #D3D1E8;
+  --card: #F1EFF7;
+  --white: #fff;
+  --radius: 18px;
+  --container: 1200px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-script: "Playfair Display", serif;
+}
+
+/* Self-hosted font (placed in assets/fonts/) */
+@font-face {
+  font-family: 'Actonia';
+  src: url('../assets/fonts/Actonia.woff2') format('woff2'),
+       url('../assets/fonts/Actonia.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--muted);
+  padding: 60px 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Progress Bar */
+.progress-wrapper {
+  margin-bottom: 60px;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.progress-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-step span {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #5C4B5E;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+
+.progress-step.active span {
+  font-weight: 700;
+}
+
+.progress-line {
+  width: 100%;
+  height: 7px;
+  background: #E8DEF8;
+  border-radius: 4px;
+}
+
+.progress-step.active .progress-line {
+  background: #C8C5E2;
+}
+
+/* Main Content Layout */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 100px;
+}
+
+/* Cart Section */
+.cart-section {
+  min-width: 0;
+}
+
+.cart-section h1 {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #5C4B5E;
+  margin-bottom: 32px;
+}
+
+/* Cart Headers */
+.cart-headers {
+  display: grid;
+  grid-template-columns: 80px 200px 100px 1fr 100px;
+  gap: 20px;
+  padding: 0 0 16px 0;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #5C4B5E;
+  margin-bottom: 20px;
+}
+
+.cart-headers .header-product {
+  grid-column: 1 / 3;
+  padding-left: 0;
+}
+
+.cart-headers .header-price {
+  text-align: left;
+}
+
+.cart-headers .header-quantity {
+  text-align: center;
+}
+
+.cart-headers .header-total {
+  text-align: left;
+}
+
+/* Cart Item */
+.cart-item {
+  display: grid;
+  grid-template-columns: 80px 200px 100px 1fr 100px;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.remove-btn {
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5C4B5E;
+  background: transparent;
+  color: #5C4B5E;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  line-height: 1;
+  padding: 0;
+}
+
+.remove-btn:hover {
+  background: #5C4B5E;
+  color: white;
+}
+
+.cart-item img {
+  width: 79px;
+  height: 78px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-name {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5C4B5E;
+}
+
+.item-size {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #5C4B5E;
+}
+
+.item-price {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #5C4B5E;
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.item-quantity button {
+  width: 16px;
+  height: 16px;
+  border: 1.4px solid #5C4B5E;
+  border-radius: 50%;
+  background: transparent;
+  color: #5C4B5E;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.item-quantity button:hover {
+  background: #5C4B5E;
+  color: white;
+}
+
+.item-quantity span {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #5C4B5E;
+}
+
+.item-total {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #5C4B5E;
+  text-align: left;
+}
+
+.add-note-wrapper {
+  display: grid;
+  grid-template-columns: 80px 200px 100px 1fr 100px;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.add-note {
+  grid-column: 4 / 6;
+  display: inline-block;
+  background: #F1EFF7;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #5C4B5E;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.add-note:hover {
+  background: #e5e0ed;
+}
+
+/* Order Summary */
+.order-summary {
+  background: white;
+  padding: 32px;
+  border-radius: 18px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.order-summary h2 {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #5C4B5E;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #5C4B5E;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #5C4B5E;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 0 0;
+  margin-top: 16px;
+  border-top: 1px solid #5C4B5E;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #5C4B5E;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  body {
+    padding: 40px 20px;
+  }
+  
+  .main-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .cart-headers {
+    display: none;
+  }
+  
+  .cart-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .remove-btn {
+    position: absolute;
+    left: auto;
+    right: 16px;
+    top: 16px;
+    transform: none;
+  }
+  
+  .cart-item img {
+    margin: 0 auto;
+  }
+  
+  .item-info {
+    text-align: center;
+  }
+  
+  .item-quantity {
+    justify-content: center;
+  }
+  
+  .item-total {
+    text-align: center;
+  }
+}
