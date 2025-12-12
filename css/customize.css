@@ -909,8 +909,8 @@ body {
 
 /* Wider container for the profile modal */
 .profile-modal-content {
-    max-width: 900px; /* Wider than the login modal */
-    padding: 50px;
+    max-width: 1100px; /* Wider than the login modal */
+    height: 553px;
     background-color: #C9C4E2; /* Darker purple background from image */
     border-radius: 50px;
     color: #5C4B5E;
@@ -930,10 +930,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .profile-avatar {
     margin-bottom: 30px;
+}
+
+.profile-vector {
+    position: absolute;
+    top: 45px;
+    left: 455px;
 }
 
 /* Right Column */
@@ -941,11 +948,19 @@ body {
     flex: 2;
 }
 
+
+
 /* Form Layout */
 .profile-details-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.profile-profile{
+    position: relative;
+    top: -20px;
+    z-index: 1;
 }
 
 .form-row {
@@ -959,7 +974,7 @@ body {
 
 /* Custom Input Styling for Profile View */
 .profile-input {
-    background-color: #E2D2E8; /* Lighter purple input background */
+    background-color: #F1EFF7; /* Lighter purple input background */
     border-radius: 15px;
     padding: 15px 25px;
     font-weight: bold;
@@ -968,9 +983,18 @@ body {
     border: none;
 }
 
+.profile-highlight {
+    background-color: #E2D2E8;
+    position: relative;
+    bottom: 60px;
+    z-index: 0;
+    height: 20px;
+    width: 160px;
+}
+
 /* Buttons styling */
 .btn-profile-action {
-    background-color: #E2D2E8;
+    background-color: #F1EFF7;
     color: #B282B9;
     font-weight: bold;
     border: none;

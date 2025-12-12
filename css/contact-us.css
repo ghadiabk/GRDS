@@ -91,7 +91,13 @@ body {
 
 /* Contact Hero Section */
 .contact-hero {
-  background: rgba(228, 222, 240, 0.5);
+  background: repeating-linear-gradient(
+    90deg,
+    #E4DEF0 0px,
+    #E4DEF0 20px,
+    #D5C9E8 20px,
+    #D5C9E8 40px
+  );
   padding: 118px 0 80px;
   position: relative;
   overflow: hidden;
@@ -104,8 +110,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('assets/hero-bg.png');
-  opacity: 0.4;
+  background: rgba(255, 255, 255, 0.2);
   z-index: 0;
 }
 
