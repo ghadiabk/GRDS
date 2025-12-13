@@ -277,18 +277,31 @@
 .promise-section {
   position: relative;
   padding: 70px 24px 80px;
-  background-color: #f4ecf6; /* fallback base color */
-  background-image: url('../assets/img/cakeBac.png');
-  background-repeat: repeat;      /* repeat in BOTH directions */
-  background-position: top center;
-  background-size: auto;          /* use image’s natural size for seamless stripes */
+  background: repeating-linear-gradient(
+    90deg,
+    #E4DEF0 0px,
+    #E4DEF0 20px,
+    #D5C9E8 20px,
+    #D5C9E8 40px
+  );
+  overflow: hidden;
   display: flex;
   justify-content: center;
+}
+
+.promise-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 0;
+  pointer-events: none;
 }
 
 
 .promise-card {
   position: relative;
+  z-index: 1; /* keep content above the background overlay */
   max-width: 640px;
   text-align: center;
   padding: 0;
