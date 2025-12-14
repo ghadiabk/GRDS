@@ -109,7 +109,9 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
-
+.from{
+  width: 100%;
+}
 .form-input,
 .form-textarea {
   padding: 1rem;
@@ -118,12 +120,27 @@ body {
   border-radius: 8px;
 }
 
+.form-input,
+.textarea {
+  padding: 1rem;
+  border: none;
+  background: var(--card);
+  border-radius: 8px;
+}
 .form-input:focus,
 .form-textarea:focus {
   outline: 2px solid var(--accent);
   background: var(--white);
 }
-
+.textarea{
+  width: 100%;
+  background: var(--card);
+}
+.form-input:focus,
+.textarea:focus {
+  outline: 2px solid var(--accent);
+  background: var(--white);
+}
 .form-textarea {
   min-height: 120px;
   resize: vertical;
@@ -260,6 +277,14 @@ body {
   }
 }
 
+.header-img {
+  width: 100%;
+  height: auto;
+}
+.img{
+  width: 200px;
+  height: auto;
+}
 .contact-info {
   padding-bottom: 0;
   margin-bottom: 0;
