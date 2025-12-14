@@ -174,15 +174,15 @@ function renderOrderSummary() {
 
     // Calculate totals
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const taxRate = 0.08;
-    const tax = subtotal * taxRate;
+    // REMOVED: const taxRate = 0.08;
+    // REMOVED: const tax = subtotal * taxRate;
     const deliveryCharge = 3.00;
-    const total = subtotal + tax + deliveryCharge;
+    const total = subtotal + deliveryCharge; // MODIFIED: Total calculation now excludes tax
     
     // --- NEW: Object to store summary data for payment page ---
     const summaryData = {
         subtotal: subtotal.toFixed(2),
-        tax: tax.toFixed(2),
+        // REMOVED: tax: tax.toFixed(2),
         deliveryCharge: deliveryCharge.toFixed(2),
         total: total.toFixed(2),
         items: cart.map(item => ({
@@ -196,15 +196,7 @@ function renderOrderSummary() {
     };
     // --- END NEW ---
     
-    // Add tax
-    const taxItem = document.createElement('div');
-    taxItem.className = 'summary-item';
-    taxItem.innerHTML = `
-        <span>Tax (${(taxRate * 100).toFixed(0)}%)</span>
-        <span>$${tax.toFixed(2)}</span>
-    `;
-    itemsWrapper.appendChild(taxItem);
-
+    // REMOVED: Tax item display block
 
     // Add delivery charge
     const deliveryItem = document.createElement('div');
@@ -299,31 +291,31 @@ window.removeItem = function (id) {
 
 // Update Item Size
 window.updateItemSize = function (id, newSize, priceIncrease, basePrice) {
-  id = Number(id);
-  const item = cart.find(i => Number(i.id) === id);
-  
-  if (item) {
-    item.size = newSize;
-    // Set basePrice property if it doesn't exist, for future reference
-    item.basePrice = item.basePrice || basePrice; 
-    item.price = item.basePrice + priceIncrease; // Calculate new price
+    id = Number(id);
+    const item = cart.find(i => Number(i.id) === id);
     
-    // --- FIX: Update size and price in place to prevent scroll jump ---
-
-    const cartItemEl = document.querySelector(`.cart-item[data-item-id="${id}"]`);
-
-    if (cartItemEl) {
-        // Update price column
-        cartItemEl.querySelector('.item-price').textContent = `$${item.price.toFixed(2)}`;
+    if (item) {
+        item.size = newSize;
+        // Set basePrice property if it doesn't exist, for future reference
+        item.basePrice = item.basePrice || basePrice; 
+        item.price = item.basePrice + priceIncrease; // Calculate new price
         
-        // Update item total column
-        const itemTotal = (item.price * item.quantity).toFixed(2);
-        cartItemEl.querySelector('.item-total').textContent = `$${itemTotal}`;
+        // --- FIX: Update size and price in place to prevent scroll jump ---
+
+        const cartItemEl = document.querySelector(`.cart-item[data-item-id="${id}"]`);
+
+        if (cartItemEl) {
+            // Update price column
+            cartItemEl.querySelector('.item-price').textContent = `$${item.price.toFixed(2)}`;
+            
+            // Update item total column
+            const itemTotal = (item.price * item.quantity).toFixed(2);
+            cartItemEl.querySelector('.item-total').textContent = `$${itemTotal}`;
+        }
+        
+        saveCart();
+        renderOrderSummary();
     }
-    
-    saveCart();
-    renderOrderSummary();
-  }
 };
 
 // Update Item Note

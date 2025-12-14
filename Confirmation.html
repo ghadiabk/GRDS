@@ -8,8 +8,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/payment.css">
-<script defer src="js/payment.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+     <link rel="stylesheet" href="css/Confirmation.css">
+<script defer src="js/Confirmation.js"></script>
 </head>
 
 <body>
@@ -42,125 +43,73 @@
     </header>
     
 <div class="checkout-container">
-   <div class="container">
-    <!-- Progress Bar -->
-    <div class="progress-wrapper">
-      <div class="progress-bar">
-        <div class="progress-step ">
-          <span>Checkout</span>
-          <div class="progress-line"></div>
-        </div>
-        <div class="progress-step active">
-          <span>Payment & Shipping</span>
-          <div class="progress-line"></div>
-        </div>
-        <div class="progress-step">
-          <span>Delivery</span>
-          <div class="progress-line"></div>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-
-  <main class="checkout-content">
-    
-    <section class="checkout-form">
-        
-        <div class="payment-method">
-            <h2>Payment Method</h2>
-            <div class="payment-options">
-                <button type="button" class="option-btn" id="cash-btn"> 
-                    <svg  class="checkmark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8.01l-9 9z" fill="currentColor"/></svg>Cash On Delivery</button>
-                <button type="button" class="option-btn selected-option" id="card-btn">
-                    <svg class="checkmark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8.01l-9 9z" fill="currentColor"/></svg>
-                    Visa Card
-                </button>
+    <div class="container">
+        <div class="progress-wrapper">
+            <div class="progress-bar">
+                <div class="progress-step ">
+                    <span>Checkout</span>
+                    <div class="progress-line"></div>
+                </div>
+                <div class="progress-step ">
+                    <span>Payment & Shipping</span>
+                    <div class="progress-line"></div>
+                </div>
+                <div class="progress-step active">
+                    <span>Delivery</span>
+                    <div class="progress-line"></div>
+                </div>
             </div>
         </div>
-
-        <div class="card-details" id="card-details-section">
-            <h3>Card Details</h3>
-            <form>
-                <div class="form-row">
-                    <label for="name-on-card">Name on card</label>
-                    <input type="text" id="name-on-card" placeholder="Enter card holder's name">
-                </div>
-                <div class="form-row">
-                    <label for="card-number">Card number</label>
-                    <input type="text" id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
-                </div>
-                <div class="form-row half-width">
-                    <label for="cvv">CVV</label>
-                    <input type="text" id="cvv" placeholder="XXX">
-                </div>
-                <div class="form-row half-width">
-                    <label for="expiry">Expiration Date</label>
-                    <input type="text" id="expiry" placeholder="MM-YYYY">
-                </div>
-            </form>
-        </div>
-
-        <div class="shipping-info">
-            <h3>Shipping Information </h3>
-            
-            <form class="shipping-form">
-                <div class="form-row one-third-width">
-                    <input type="text" id="first-name" placeholder="First Name*">
-                </div>
-                <div class="form-row one-third-width">
-                    <input type="text" id="last-name" placeholder="Last Name*">
-                </div>
-                <div class="form-row one-third-width">
-                    <input type="text" id="phone" placeholder="Phone Number*">
-                </div>
-                
-                <div class="form-row half-width">
-                    <input type="email" id="email" placeholder="Email Address*">
-                </div>
-                <div class="form-row half-width">
-                    <input type="text" id="region" placeholder="Region*">
-                </div>
-
-                <div class="form-row one-third-width">
-                    <input type="text" id="city" placeholder="City*">
-                </div>
-                <div class="form-row one-third-width">
-                    <input type="text" id="street" placeholder="Street*">
-                </div>
-                <div class="form-row one-third-width">
-                    <input type="text" id="apt" placeholder="Apt. Number*">
-                </div>
-
-                <div class="form-row full-width">
-                    <input type="text" id="address" placeholder="Address*">
-                </div>
-                
-                <div class="form-row full-width submit-row-combined">
-                    <input type="text" id="additional-info" placeholder="Additional information" class="flex-grow-input">
-                    <button type="submit" class="submit-btn">Submit</button>
-                </div>
-            </form>
-        </div>
-
-    </section>
-
-<aside class="order-summary">
-    <h2>Order Summary</h2>
-    
-    <div id="summary-items-list"></div> 
-    
-    <div class="summary-item delivery-charge">
-        <span>Delivery Charge</span>
-        <span id="summary-delivery-charge">$3.00</span> 
     </div>
-    
-    <div class="summary-item total">
-        <span>Total</span>
-        <span id="summary-total">$33.00</span>
+
+    <div class="main-content-confirmation">
+        <div class="container confirmation-content">
+            <div class="cart-section">
+                <h1 class="order-confirmation-title">Order Confirmation</h1>
+
+                <div class="order-summary-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Delivery Date</span>
+                        <span class="detail-value">Dec 23, 2025</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Order ID</span>
+                        <span class="detail-value">#5221102</span>
+                    </div>
+                    <div class="detail-group">
+                        <span class="detail-label">Payment Method</span>
+                        <span class="detail-value">Cash on delivery</span>
+                    </div>
+                    <div class="detail-group address-group">
+                        <span class="detail-label">Address</span>
+                        <span class="detail-value address-value">Beirut, Verdun st, Verd.</span>
+                    </div>
+                </div>
+
+                <hr class="summary-line">
+
+                <div id="cart-items-container">
+                    </div>
+                
+             
+
+            </div>
+               <div class="order-totals-actions">
+                    <div class="total-row delivery-charge">
+                        <span class="label">Delivery Charge</span>
+                        <span class="amount">$3.00</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span class="label">Total</span>
+                        <span class="amount">$33.00</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="continue-shopping-btn">Continue Shopping</button>
+                        <button class="place-order-btn">Place Order</button>
+                    </div>
+                </div>
+        </div>
     </div>
-</aside>
-</main>
 </div>
 
 

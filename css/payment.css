@@ -640,3 +640,11 @@ input:focus {
 .progress-step.active .progress-line {
   background: #C8C5E2;
 }
+
+.checkmark-icon {
+    display: none;
+}
+
+.selected-option .checkmark-icon {
+    display: inline-block; 
+}
