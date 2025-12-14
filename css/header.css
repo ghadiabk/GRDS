@@ -1,0 +1,252 @@
+/* ============================= */
+/* ROOT & RESET */
+/* ============================= */
+:root{
+  --bg:#F6F2F8;
+  --muted:#5C4B5E;
+  --accent:#B282B9;
+  --accent-2:#D3D1E8;
+  --card:#F1EFF7;
+  --white:#fff;
+  --radius:18px;
+  --container:1200px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-script: "Actonia", "Playfair Display", serif;
+}
+
+@font-face {
+  font-family: 'Actonia';
+  src: url('../assets/fonts/Actonia.woff2') format('woff2'),
+       url('../assets/fonts/Actonia.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--muted);
+    min-height: 100vh;
+}
+
+/* ============================= */
+/* GLOBAL CONTAINER */
+/* ============================= */
+.container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+.site-header {
+    background: #C8C5E2;
+    height: 100px;
+}
+
+.header-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 155px;
+    height: auto;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 700;
+    margin-left: 30px;
+}
+
+.main-nav a:hover {
+    color: white;
+}
+
+.login-btn {
+    background: var(--accent);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 11px;
+}
+
+.burger-menu,
+.close-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.nav-overlay {
+    display: none;
+}
+.brand{
+    margin-top: 20px;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+.site-footer {
+    background: #fff;
+    padding: 80px 0 0;
+    margin-top: 80px;
+    color: #5C4B5E;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 0 0 auto;
+    bottom: 20px;
+    position: relative;
+}
+
+.footer-logo-img {
+    width: 190px;
+    height: 170px;
+}
+
+.footer-nav-grid {
+    display: flex;
+    gap: 60px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #5C4B5E;
+}
+
+.footer-col a {
+    text-decoration: none;
+    color: #8a7489;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #B282B9;
+}
+
+.footer-connect {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 25px;
+}
+
+.connect-header {
+    position: relative;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.lets-text {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 30px;
+    color: #5C4B5E;
+    position: absolute;
+    top: -30px;
+    left: 30px;
+}
+
+.connect-script-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.connect-script {
+    font-family: var(--font-script);
+    font-size: 45px;
+    color: #5C4B5E;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+}
+
+.connect-underline {
+    position: absolute;
+    bottom: 2px;
+    left: -5px;
+    width: 110%;
+    height: 14px;
+    background-color: #E2D2E8;
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #B98DBF;
+    color: white;
+    border-radius: 50%;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.social-circle:hover {
+    transform: translateY(-3px);
+    background-color: #916198;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: #B282B9;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #5C4B5E;
+    padding: 20px 0;
+}

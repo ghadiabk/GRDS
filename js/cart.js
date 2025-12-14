@@ -9,6 +9,13 @@ let cart = JSON.parse(localStorage.getItem('tz_cart')) || [];
 function init() {
     renderCart();
     renderOrderSummary();
+    // Add event listener for size dropdowns (in case init runs after DOM load)
+    document.querySelectorAll('.size-dropdown').forEach(dropdown => {
+        if (!dropdown.dataset.listenerAttached) { // Prevent attaching multiple times
+            dropdown.addEventListener('change', handleSizeChange);
+            dropdown.dataset.listenerAttached = 'true';
+        }
+    });
 }
 
 // Show all cart items on the page
@@ -29,13 +36,13 @@ function renderCart() {
         cartSectionEl.appendChild(headersEl);
     }
 
-    // Remove all existing cart items
+    // Remove all existing cart items (and their note fields)
     document.querySelectorAll('.cart-item').forEach(item => item.remove());
-    document.querySelectorAll('.add-note').forEach(btn => btn.remove());
 
     // If no items in cart, show message
     if (cart.length === 0) {
         const emptyMessage = document.createElement('div');
+        emptyMessage.className = 'cart-empty-message';
         emptyMessage.style.cssText = 'text-align:center; padding: 60px 20px;';
         emptyMessage.innerHTML = `
             <p style="font-size: 18px; color: #5C4B5E; margin-bottom: 20px;">Your cart is empty.</p>
@@ -44,13 +51,23 @@ function renderCart() {
             </a>
         `;
         cartSectionEl.appendChild(emptyMessage);
+        // Hide headers if cart is empty
+        if (headersEl) headersEl.style.display = 'none';
         return;
     }
+    
+    // Show headers if cart is not empty
+    if (headersEl) headersEl.style.display = 'grid';
+    // Remove empty message if it exists
+    document.querySelector('.cart-empty-message')?.remove();
+
 
     // Loop through each item and add it to the page
     cart.forEach((item, index) => {
         const itemEl = document.createElement('div');
         itemEl.className = 'cart-item';
+        // Add a data attribute for easier identification
+        itemEl.dataset.itemId = item.id;
         
         const itemTotal = (item.price * item.quantity).toFixed(2);
 
@@ -80,9 +97,10 @@ function renderCart() {
             </div>
             
             <div class="item-total">$${itemTotal}</div>
+            <input type="text" class="add-note" data-id="${item.id}" placeholder="Add A Note" value="${item.note || ''}">
         `;
 
-        // Attach event listeners
+        // Attach static event listeners for quantity and remove
         itemEl.querySelector('.remove-btn').addEventListener('click', () => removeItem(item.id));
         itemEl.querySelector('.qty-minus').addEventListener('click', () => updateQuantity(item.id, -1));
         itemEl.querySelector('.qty-plus').addEventListener('click', () => updateQuantity(item.id, 1));
@@ -91,25 +109,35 @@ function renderCart() {
         if (item.category === 'cakes') {
             const sizeDropdown = itemEl.querySelector('.size-dropdown');
             if (sizeDropdown) {
-                sizeDropdown.addEventListener('change', (e) => {
-                    const newSize = e.target.value;
-                    const sizePriceMap = { '9cm': 0, '15cm': 5, '30cm': 12 };
-                    const basePrice = item.originalPrice || item.price;
-                    const priceIncrease = sizePriceMap[newSize];
-                    updateItemSize(item.id, newSize, priceIncrease, basePrice);
-                });
+                // Use the globally defined function for event handling
+                sizeDropdown.addEventListener('change', handleSizeChange);
             }
         }
+        
+        // Add listener for saving the note
+        itemEl.querySelector('.add-note').addEventListener('change', (e) => updateItemNote(item.id, e.target.value));
+
 
         cartSectionEl.appendChild(itemEl);
-
-        // Add note input field inside cart item (at the right)
-        const noteInput = document.createElement('input');
-        noteInput.type = 'text';
-        noteInput.className = 'add-note';
-        noteInput.placeholder = 'Add A Note';
-        itemEl.appendChild(noteInput);
     });
+}
+
+// Global handler for size change (to prevent re-rendering when adding listeners)
+function handleSizeChange(e) {
+    const id = e.target.dataset.id;
+    const newSize = e.target.value;
+    const sizePriceMap = { '9cm': 0, '15cm': 5, '30cm': 12 };
+    
+    // Find the base price from the cart item object
+    const item = cart.find(i => Number(i.id) === Number(id));
+    if (!item) return;
+
+    // Use originalPrice if it exists, otherwise use the current price (assuming it's the base)
+    // This logic ensures that once a size is changed, we always refer back to a fixed base price.
+    const basePrice = item.originalPrice || item.basePrice || item.price;
+    
+    const priceIncrease = sizePriceMap[newSize];
+    updateItemSize(Number(id), newSize, priceIncrease, basePrice);
 }
 
 // Render order summary
@@ -117,11 +145,12 @@ function renderOrderSummary() {
     const summaryContainer = document.querySelector('.order-summary');
     
     // Remove existing items (keep header)
-    const existingSummaryItems = summaryContainer.querySelectorAll('.summary-item, .summary-total, .payment-btn, .summary-items-wrapper');
+    const existingSummaryItems = summaryContainer.querySelectorAll('.summary-item, .summary-total, .payment-btn, .summary-items-wrapper, .cart-empty-message');
     existingSummaryItems.forEach(item => item.remove());
 
     if (cart.length === 0) {
         const emptyMsg = document.createElement('div');
+        emptyMsg.className = 'cart-empty-message';
         emptyMsg.style.cssText = 'padding: 20px; color: #5C4B5E; text-align: center;';
         emptyMsg.textContent = 'Your cart is empty';
         summaryContainer.appendChild(emptyMsg);
@@ -137,7 +166,7 @@ function renderOrderSummary() {
         const summaryItem = document.createElement('div');
         summaryItem.className = 'summary-item';
         summaryItem.innerHTML = `
-            <span>${item.name} (x${item.quantity})</span>
+            <span>${item.name}${item.size ? ` (${item.size})` : ''} (x${item.quantity})</span>
             <span>$${(item.price * item.quantity).toFixed(2)}</span>
         `;
         itemsWrapper.appendChild(summaryItem);
@@ -145,7 +174,8 @@ function renderOrderSummary() {
 
     // Calculate totals
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const tax = subtotal * 0.08;
+    const taxRate = 0.08;
+    const tax = subtotal * taxRate;
     const deliveryCharge = 3.00;
     const total = subtotal + tax + deliveryCharge;
     
@@ -159,10 +189,22 @@ function renderOrderSummary() {
             name: item.name,
             quantity: item.quantity,
             price: item.price,
-            total: (item.price * item.quantity).toFixed(2)
+            total: (item.price * item.quantity).toFixed(2),
+            size: item.size || null,
+            note: item.note || null
         }))
     };
     // --- END NEW ---
+    
+    // Add tax
+    const taxItem = document.createElement('div');
+    taxItem.className = 'summary-item';
+    taxItem.innerHTML = `
+        <span>Tax (${(taxRate * 100).toFixed(0)}%)</span>
+        <span>$${tax.toFixed(2)}</span>
+    `;
+    itemsWrapper.appendChild(taxItem);
+
 
     // Add delivery charge
     const deliveryItem = document.createElement('div');
@@ -185,7 +227,7 @@ function renderOrderSummary() {
     // Append items wrapper to summary
     summaryContainer.appendChild(itemsWrapper);
 
-    // Add payment button (outside the items wrapper, outside white background)
+    // Add payment button
     const paymentBtn = document.createElement('button');
     paymentBtn.className = 'payment-btn';
     paymentBtn.textContent = 'Proceed to Payment';
@@ -208,15 +250,33 @@ window.updateQuantity = function (id, change) {
     // If quantity becomes 0 or less, ask if user wants to delete item
     if (item.quantity < 1) {
         if (confirm("Remove this item from cart?")) {
-            removeItem(id);
+            removeItem(id); // removeItem will handle save/render
             return;
         } else {
             item.quantity = 1;
         }
     }
 
+    // --- FIX: Update quantity in place to prevent scroll jump ---
+
+    // 1. Find the specific cart item element
+    // Query the element by its data-item-id
+    const cartItemEl = document.querySelector(`.cart-item[data-item-id="${id}"]`);
+    
+    if (cartItemEl) {
+        // 2. Update the quantity display
+        cartItemEl.querySelector('.item-quantity span').textContent = item.quantity;
+
+        // 3. Update the item price (if base price wasn't set previously)
+        cartItemEl.querySelector('.item-price').textContent = `$${item.price.toFixed(2)}`;
+
+        // 4. Update the item total display
+        const itemTotal = (item.price * item.quantity).toFixed(2);
+        cartItemEl.querySelector('.item-total').textContent = `$${itemTotal}`;
+    }
+    
+    // 5. Save the cart and render the summary
     saveCart();
-    renderCart();
     renderOrderSummary();
 };
 
@@ -224,16 +284,18 @@ window.updateQuantity = function (id, change) {
 window.removeItem = function (id) {
     // Convert to number to ensure proper matching
     id = Number(id);
+    
+    // Find and visually remove the item from the DOM
+    const itemEl = document.querySelector(`.cart-item[data-item-id="${id}"]`);
+    if (itemEl) {
+        itemEl.remove();
+    }
+    
     cart = cart.filter(i => Number(i.id) !== id);
     saveCart();
-    renderCart();
+    renderCart(); // This call will re-render if the cart is now empty
     renderOrderSummary();
 };
-
-// Save cart to localStorage
-function saveCart() {
-    localStorage.setItem('tz_cart', JSON.stringify(cart));
-}
 
 // Update Item Size
 window.updateItemSize = function (id, newSize, priceIncrease, basePrice) {
@@ -242,15 +304,42 @@ window.updateItemSize = function (id, newSize, priceIncrease, basePrice) {
   
   if (item) {
     item.size = newSize;
-    item.price = basePrice + priceIncrease;
-    item.originalPrice = basePrice;
-    item.priceIncrease = priceIncrease;
+    // Set basePrice property if it doesn't exist, for future reference
+    item.basePrice = item.basePrice || basePrice; 
+    item.price = item.basePrice + priceIncrease; // Calculate new price
+    
+    // --- FIX: Update size and price in place to prevent scroll jump ---
+
+    const cartItemEl = document.querySelector(`.cart-item[data-item-id="${id}"]`);
+
+    if (cartItemEl) {
+        // Update price column
+        cartItemEl.querySelector('.item-price').textContent = `$${item.price.toFixed(2)}`;
+        
+        // Update item total column
+        const itemTotal = (item.price * item.quantity).toFixed(2);
+        cartItemEl.querySelector('.item-total').textContent = `$${itemTotal}`;
+    }
     
     saveCart();
-    renderCart();
     renderOrderSummary();
   }
 };
+
+// Update Item Note
+window.updateItemNote = function(id, note) {
+    id = Number(id);
+    const item = cart.find(i => Number(i.id) === id);
+    if (item) {
+        item.note = note.trim();
+        saveCart();
+    }
+};
+
+// Save cart to localStorage
+function saveCart() {
+    localStorage.setItem('tz_cart', JSON.stringify(cart));
+}
 
 // Run script when DOM is ready
 if (document.readyState === 'loading') {

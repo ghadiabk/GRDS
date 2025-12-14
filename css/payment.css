@@ -99,6 +99,9 @@ body {
 .nav-overlay {
     display: none;
 }
+.brand{
+    margin-top: 20px;
+}
 
 /* ============================= */
 /* FOOTER */
@@ -374,17 +377,6 @@ body {
     position: relative;
 }
 
-.progress-bar {
-    flex-grow: 1;
-    height: 3px;
-    background-color: var(--accent-2);
-    border: none;
-    margin: 0;
-}
-
-.progress-bar.active {
-    background-color: var(--accent);
-}
 
 /* --- Main Content Grid --- */
 .checkout-content {
@@ -432,6 +424,7 @@ body {
 }
 
 .summary-total {
+    
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
@@ -439,6 +432,13 @@ body {
   padding-top: 15px;
   font-weight: 700;
   font-size: 16px;
+}
+
+/* New/Modified rule to ensure text within the spans is bold */
+.summary-item.total span {
+    font-weight: 700; /* Apply boldness to both the label and the value */
+    font-size: 16px; /* Apply font size to both label and value */
+    color: var(--dark-purple); /* Optional: Ensure color stands out */
 }
 
 
@@ -614,4 +614,29 @@ input:focus {
     .checkout-header {
         padding: 20px 10px;
     }
+}
+.progress-wrapper {
+  margin-bottom: 40px;
+  margin-top: 60px;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.progress-step {
+  flex: 1;
+  text-align: center;
+}
+
+.progress-line {
+  height: 7px;
+  background: #E8DEF8;
+  border-radius: 4px;
+}
+
+.progress-step.active .progress-line {
+  background: #C8C5E2;
 }

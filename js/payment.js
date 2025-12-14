@@ -27,8 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
             itemsListEl.appendChild(itemEl);
         });
-
-        // 3. Update the delivery charge and final total elements
         if (deliveryChargeEl) {
             deliveryChargeEl.textContent = `$${summary.deliveryCharge}`;
         }
@@ -41,9 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (deliveryChargeRow && totalParent) {
              const finalSeparator = document.createElement('hr');
-             
-             // We insert the new separator right after the Delivery Charge row.
-             // This is the most reliable way to insert it between two pre-existing elements.
              deliveryChargeRow.insertAdjacentElement('afterend', finalSeparator);
         } else {
              console.warn("Could not find required elements to place final separator correctly.");
@@ -60,8 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const cashBtn = document.getElementById('cash-btn');
     const cardBtn = document.getElementById('card-btn');
     const cardSection = document.getElementById('card-details-section');
-
-    if (cashBtn) {
+if (cashBtn) {
         cashBtn.addEventListener('click', function() {
             if (cardSection) {
                 cardSection.style.display = 'none';
@@ -86,5 +80,4 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-    
 });

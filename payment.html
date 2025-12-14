@@ -16,7 +16,7 @@
     <header class="site-header">
         <div class="container header-inner">
             <div class="brand">
-                <img src="assets/img/header-logo.png" alt="logo" class="logo">
+                <img src="assets/img/unpetitgato1 1.png" alt="logo" class="logo">
             </div>
 
 
@@ -31,7 +31,7 @@
                 <a href="aboutus.html">About Us</a>
                 <a href="product.html">Menu</a>
                 <a href="contact-us.html">Contact</a>
-                <a href="#" class="login-btn">Login</a>
+                <a href="#" class="login-btn" style="color: white;">Login</a>
                 <a href="#"><img src="assets/img/search.png" alt="Search"></a>
                 <a href="#"><img src="assets/img/Shopping cart.png" alt="Cart"></a>
             </nav>
@@ -42,15 +42,25 @@
     </header>
     
 <div class="checkout-container">
-    <div class="checkout-header">
-        <div class="steps-progress">
-            <span class="step active">Checkout</span>
-            <hr class="progress-bar active">
-            <span class="step">Payment</span>
-            <hr class="progress-bar">
-            <span class="step">Delivery</span>
+   <div class="container">
+    <!-- Progress Bar -->
+    <div class="progress-wrapper">
+      <div class="progress-bar">
+        <div class="progress-step ">
+          <span>Checkout</span>
+          <div class="progress-line"></div>
         </div>
+        <div class="progress-step active">
+          <span>Payment & Shipping</span>
+          <div class="progress-line"></div>
+        </div>
+        <div class="progress-step">
+          <span>Delivery</span>
+          <div class="progress-line"></div>
+        </div>
+      </div>
     </div>
+  </div>
 
   <main class="checkout-content">
     
@@ -59,7 +69,8 @@
         <div class="payment-method">
             <h2>Payment Method</h2>
             <div class="payment-options">
-                <button type="button" class="option-btn" id="cash-btn"> <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8.01l-9 9z" fill="currentColor"/></svg>Cash On Delivery</button>
+                <button type="button" class="option-btn" id="cash-btn"> 
+                    <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8.01l-9 9z" fill="currentColor"/></svg>Cash On Delivery</button>
                 <button type="button" class="option-btn selected-option" id="card-btn">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8.01l-9 9z" fill="currentColor"/></svg>
                     Visa Card
@@ -189,21 +200,9 @@
                         <a href="#">Sign in</a>
                         <a href="#">My Account</a>
                     </div>
-
-                </div>
-
-                <div class="footer-connect">
-
-                    <div class="connect-header">
-                        <span class="lets-text">Let's</span>
-                        <div class="connect-script-wrapper">
-                            <span class="connect-script">Connect</span>
-                            <span class="connect-underline"></span>
-                            <img src="assets/img/vector 15.png" class="connect-shine" alt="">
-                        </div>
-                    </div>
-
-                    <div class="social-icons">
+                    <div class="footer-col">
+                        <h4>Let's Connect</h4>
+                         <div class="social-icons">
                         <a href="#" class="social-circle">
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -227,6 +226,7 @@
                                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
                             </svg>
                         </a>
+                    </div>
                     </div>
 
                 </div>
