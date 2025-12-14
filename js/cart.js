@@ -148,6 +148,21 @@ function renderOrderSummary() {
     const tax = subtotal * 0.08;
     const deliveryCharge = 3.00;
     const total = subtotal + tax + deliveryCharge;
+    
+    // --- NEW: Object to store summary data for payment page ---
+    const summaryData = {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        deliveryCharge: deliveryCharge.toFixed(2),
+        total: total.toFixed(2),
+        items: cart.map(item => ({
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+            total: (item.price * item.quantity).toFixed(2)
+        }))
+    };
+    // --- END NEW ---
 
     // Add delivery charge
     const deliveryItem = document.createElement('div');
@@ -175,8 +190,9 @@ function renderOrderSummary() {
     paymentBtn.className = 'payment-btn';
     paymentBtn.textContent = 'Proceed to Payment';
     paymentBtn.addEventListener('click', () => {
-        alert('Redirecting to payment page...');
-        // window.location.href = 'payment.html';
+        // --- MODIFIED: Save data before redirecting ---
+        localStorage.setItem('payment_summary', JSON.stringify(summaryData));
+        window.location.href = 'payment.html';
     });
     summaryContainer.appendChild(paymentBtn);
 }
