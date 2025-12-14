@@ -44,84 +44,7 @@ body {
   padding: 0 20px;
 }
 
-/* --- HEADER (MATCHING HOMEPAGE) --- */
-.site-header {
-  background: #C8C5E2;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-  height: 100px;
-}
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  height: 135px;
-  width: 180px;
-  position: relative;
-  bottom: 10px;
-}
-
-/* nav */
-.main-nav a {
-  margin-left: 0;
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-  font-weight: bold;
-  bottom: 15px;
-  position: relative;
-}
-
-.main-nav a+a {
-  margin-left: 33px;
-}
-
-.main-nav a:hover {
-  color: white;
-}
-.products-heading {
-  font-family: 'Actionia', 'Actonia', 'Pacifico', cursive;
-  font-size: 30px;
-  letter-spacing: 0;
-  text-transform: none;
-  margin: 0 auto 18px auto;
-  display: inline-flex;          
-  align-items: center;
-  justify-content: center;
-  gap: 8px;                       
-  color: #6b4c86;
-  padding-right: 0; 
-  transform: translateY(-10px);
-}
-
-.products-heading-icon {
-  position: static;
-  transform: none;
-  width: 28px;
-  height: auto;
-  margin-top: -4px; 
-}
-
-.main-nav img {
-  height: 20px;
-  width: auto;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.login-btn {
-  background: #B282B9;
-  border-radius: 11px;
-  padding: 8px 16px;
-  text-decoration: none;
-  font-weight: bold;
-}
 
 /* Products Section */
 .products {
@@ -661,52 +584,7 @@ body {
 }
 .btn-modal-login:hover { transform: scale(1.05); }
 
-/* Footer Links */
-.forgot-link {
-  display: block;
-  color: #B282B9;
-  font-weight: bold;
-  font-size: 14px;
-  text-decoration: none;
-  margin-bottom: 20px;
-}
 
-.modal-socials {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.modal-socials img {
-  width: 24px;
-  height: 24px;
-}
-
-.social-btn {
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 20px;
-}
-.social-btn.google { color: #EA4335; }
-.social-btn.facebook { color: #1877F2; }
-
-.signup-text {
-  font-size: 12px;
-  color: #B282B9;
-  font-weight: bold;
-}
-.signup-link {
-  color: #5C4B5E;
-  text-decoration: underline;
-}
 
 /* --- NEW MY PROFILE MODAL STYLES --- */
 
