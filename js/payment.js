@@ -1,66 +1,90 @@
- document.addEventListener("DOMContentLoaded", function() {
-      const summaryDataString = localStorage.getItem('payment_summary');
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const summaryDataString = localStorage.getItem('payment_summary');
     
     if (summaryDataString) {
         const summary = JSON.parse(summaryDataString);
         
+        // Target elements in the HTML sidebar
         const itemsListEl = document.getElementById('summary-items-list');
         const deliveryChargeEl = document.getElementById('summary-delivery-charge');
         const totalEl = document.getElementById('summary-total');
+        
+        // Find the parent container of the Total element (usually the <aside> itself)
+        const totalParent = totalEl ? totalEl.parentElement.parentElement : null;
 
-        // Clear existing static items (if any)
+
+        // Clear any placeholder/static items (if they exist)
         itemsListEl.innerHTML = ''; 
 
         // 2. Render the actual cart items
         summary.items.forEach(item => {
             const itemEl = document.createElement('div');
             itemEl.className = 'summary-item';
-            // Display item name and price
             itemEl.innerHTML = `
-                <span>${item.name}</span>
-                <span>$${item.total}</span>
+                <span>${item.name} (x${item.quantity})</span>
+                <span>$${(item.price * item.quantity).toFixed(2)}</span>
             `;
             itemsListEl.appendChild(itemEl);
         });
 
-        // 3. Update the delivery charge and total
-        deliveryChargeEl.textContent = `$${summary.deliveryCharge}`;
-        totalEl.textContent = `$${summary.total}`;
-
-        // Optional: Add a visual separator if items are rendered dynamically
-        const separator = document.createElement('hr');
-        itemsListEl.appendChild(separator);
-
-    } else {
-        // Handle case where no data is found (e.g., redirect back to cart)
-        console.error('No order summary data found in localStorage.');
-        // alert('Your cart session expired. Returning to cart page.');
-        // window.location.href = 'cart.html'; 
-    }
-    // Select elements
-        const cashBtn = document.getElementById('cash-btn');
-        const cardBtn = document.getElementById('card-btn');
-        const cardSection = document.getElementById('card-details-section');
-
-        // Function to switch to Cash
-        cashBtn.addEventListener('click', function() {
-            // Hide card section
-            cardSection.style.display = 'none';
-            
-            // Update button styles
-            cashBtn.classList.add('selected-option');
-            cardBtn.classList.remove('selected-option');
-        });
-
-        // Function to switch to Card
-        cardBtn.addEventListener('click', function() {
-            // Show card section
-            cardSection.style.display = 'block';
-            
-            // Update button styles
-            cardBtn.classList.add('selected-option');
-            cashBtn.classList.remove('selected-option');
-        });
+        // 3. Update the delivery charge and final total elements
+        if (deliveryChargeEl) {
+            deliveryChargeEl.textContent = `$${summary.deliveryCharge}`;
+        }
+        if (totalEl) {
+            totalEl.textContent = `$${summary.total}`;
+        }
         
-    });
-  
+    
+        const deliveryChargeRow = deliveryChargeEl ? deliveryChargeEl.parentElement : null;
+        
+        if (deliveryChargeRow && totalParent) {
+             const finalSeparator = document.createElement('hr');
+             
+             // We insert the new separator right after the Delivery Charge row.
+             // This is the most reliable way to insert it between two pre-existing elements.
+             deliveryChargeRow.insertAdjacentElement('afterend', finalSeparator);
+        } else {
+             console.warn("Could not find required elements to place final separator correctly.");
+        }
+        
+    } else {
+        console.error('No order summary data found in localStorage.');
+    }
+    
+    // ======================================
+    // PAYMENT METHOD TOGGLE
+    // ======================================
+    
+    const cashBtn = document.getElementById('cash-btn');
+    const cardBtn = document.getElementById('card-btn');
+    const cardSection = document.getElementById('card-details-section');
+
+    if (cashBtn) {
+        cashBtn.addEventListener('click', function() {
+            if (cardSection) {
+                cardSection.style.display = 'none';
+            }
+            
+            cashBtn.classList.add('selected-option');
+            if (cardBtn) {
+                cardBtn.classList.remove('selected-option');
+            }
+        });
+    }
+
+    if (cardBtn) {
+        cardBtn.addEventListener('click', function() {
+            if (cardSection) {
+                cardSection.style.display = 'block';
+            }
+            
+            cardBtn.classList.add('selected-option');
+            if (cashBtn) {
+                cashBtn.classList.remove('selected-option');
+            }
+        });
+    }
+    
+});

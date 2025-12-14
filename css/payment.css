@@ -1,19 +1,27 @@
 /* ============================= */
 /* ROOT & RESET */
 /* ============================= */
-:root {
-    --bg: #F6F2F8;
-    --muted: #5C4B5E;
-    --accent: #B282B9;
-    --accent-2: #D3D1E8;
-    --card: #F1EFF7;
-    --white: #fff;
-    --radius: 18px;
-    --container: 1200px;
-    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    --font-script: "Playfair Display", serif;
+:root{
+  --bg:#F6F2F8;
+  --muted:#5C4B5E;
+  --accent:#B282B9;
+  --accent-2:#D3D1E8;
+  --card:#F1EFF7;
+  --white:#fff;
+  --radius:18px;
+  --container:1200px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-script: "Actonia", "Playfair Display", serif;
 }
 
+@font-face {
+  font-family: 'Actonia';
+  src: url('../assets/fonts/Actonia.woff2') format('woff2'),
+       url('../assets/fonts/Actonia.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 * {
     margin: 0;
     padding: 0;
@@ -311,27 +319,7 @@ body {
         justify-content: center;
     }
 }
-:root{
-  --bg:#F6F2F8;
-  --muted:#5C4B5E;
-  --accent:#B282B9;
-  --accent-2:#D3D1E8;
-  --card:#F1EFF7;
-  --white:#fff;
-  --radius:18px;
-  --container:1200px;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  --font-script: "Actonia", "Playfair Display", serif;
-}
 
-@font-face {
-  font-family: 'Actonia';
-  src: url('../assets/fonts/Actonia.woff2') format('woff2'),
-       url('../assets/fonts/Actonia.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Reset and Base Styles */
 *, *::before, *::after {
@@ -415,40 +403,44 @@ body {
 
 /* --- Order Summary (Right Column) --- */
 .order-summary {
-    background-color: var(--card);
-    padding: 30px;
-    border-radius: var(--radius);
-    height: fit-content;
-    /* Added margin to push it away from the line */
-    margin-left: 40px; 
+  background: white;
+  padding: 32px;
+    margin-left: 40px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  color: var(--muted);
 }
 
 .order-summary h2 {
-    font-weight: 700;
-    margin-bottom: 25px;
-    font-size: 1.5rem;
+  font-size: 24px;
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.summary-items-wrapper {
+  margin-bottom: 20px;
 }
 
 .summary-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 14px;
 }
 
-.order-summary hr {
-    border: none;
-    height: 1px;
-    background-color: var(--accent-2);
-    margin: 15px 0;
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  border-top: 1px solid var(--muted);
+  padding-top: 15px;
+  font-weight: 700;
+  font-size: 16px;
 }
 
-.summary-item.total {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--muted);
-    padding-top: 15px;
-}
 
 /* --- Form Typography --- */
 .checkout-form h2 {
