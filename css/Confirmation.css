@@ -47,7 +47,9 @@
     position: relative;
     right: 40px;
 }
-
+.checkout-container{
+    padding-bottom: 20px;
+}
 
 .progress-wrapper {
 
