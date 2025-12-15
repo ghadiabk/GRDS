@@ -335,7 +335,8 @@ body{
 .btn.add { display: flex; margin: 0 auto; background: #F1EFF7; border-radius: 20px; padding: 10px 0; width: 152px; height: 34px; font-weight: bold; margin-bottom: 20px; justify-content: center; align-items: center; border: none; color: #000;}
 .btn.ghost { background: white; margin-top: 60px; font-size: 18px; padding: 12px 40px; border-radius: 30px; color: #B282B9; border: none; width: 153px; height: 41px;}
 .btn.ghost:hover { background: #B282B9; color: white; cursor: pointer;}
-
+.ghost a { text-decoration: none; color: #B282B9; }
+.ghost a:hover { color: white; }
 
 /* who */
 /* --- Global Styles --- */
