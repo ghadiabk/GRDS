@@ -2,6 +2,26 @@ const cartSectionEl = document.querySelector('.cart-section');
 
 let cart = JSON.parse(localStorage.getItem('tz_cart')) || [];
 
+const burgerBtn = document.getElementById("burgerBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const mainNav = document.getElementById("mainNav");
+  const navOverlay = document.getElementById("navOverlay");
+
+  burgerBtn.addEventListener("click", () => {
+    mainNav.classList.add("open");
+    navOverlay.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mainNav.classList.remove("open");
+    navOverlay.style.display = "none";
+  });
+
+  navOverlay.addEventListener("click", () => {
+    mainNav.classList.remove("open");
+    navOverlay.style.display = "none";
+  });
+
 function saveCart() {
     localStorage.setItem('tz_cart', JSON.stringify(cart));
 }
@@ -215,3 +235,4 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+ 

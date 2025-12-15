@@ -1,352 +1,300 @@
 :root{
-
   --bg:#F6F2F8;
-
   --muted:#5C4B5E;
-
   --accent:#B282B9;
-
   --accent-2:#D3D1E8;
-
   --card:#F1EFF7;
-
   --white:#fff;
-
   --radius:18px;
-
   --container:1200px;
-
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   --font-script: "Actonia", "Playfair Display", serif;
-
 }
 
-
-
-/* Self-hosted font (placed in assets/fonts/) */
-
+/* Font */
 @font-face {
-
   font-family: 'Actonia';
-
   src: url('../assets/fonts/Actonia.woff2') format('woff2'),
-
        url('../assets/fonts/Actonia.woff') format('woff');
-
   font-weight: bold;
-
   font-style: normal;
-
   font-display: swap;
-
 }
+
+/* ------------------------------ */
+/* Titles & Containers */
+/* ------------------------------ */
 .order-confirmation-title{
-    margin: 20px;
-    margin-bottom: 40px;
-    position: relative;
-    right: 40px;
+  margin: 20px 0 40px;
+  position: relative;
+  right: 40px;
 }
+
 .checkout-container{
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
-.progress-wrapper {
-
-  margin-bottom: 40px;
-
-  margin-top: 60px;
-
+/* ------------------------------ */
+/* Progress Bar */
+/* ------------------------------ */
+.progress-wrapper{
+  margin: 60px 0 40px;
 }
 
-
-
-.progress-bar {
-
+.progress-bar{
   display: flex;
-
   justify-content: space-between;
-
   gap: 30px;
-
 }
 
-
-
-.progress-step {
-
+.progress-step{
   flex: 1;
-
   text-align: center;
-
 }
 
-
-
-.progress-line {
-
+.progress-line{
   height: 7px;
-
   background: #E8DEF8;
-
   border-radius: 4px;
-
 }
 
-
-
-.progress-step.active .progress-line {
-
+.progress-step.active .progress-line{
   background: #C8C5E2;
-
 }
 
-/* ---------------------------------- */
-/* 1. Global Cart Layout */
-/* ---------------------------------- */
-.cart-section {
-    width: 90%;
-    max-width: 1100px;
-    margin: 40px auto;
+/* ------------------------------ */
+/* Cart Layout */
+/* ------------------------------ */
+.cart-section{
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
 }
 
-/* ---------------------------------- */
-/* 2. Grid Structure */
-/* Defines 6 columns: Empty Space (10px), Image (70px), Product/Info (2fr), Price (1fr), Quantity (0.5fr), Total (1fr) */
-/* ---------------------------------- */
 .cart-headers,
-.cart-item {
-    display: grid;
-    /* Grid columns template: */
-    grid-template-columns: 10px 70px 2fr 1fr 0.5fr 1fr; 
-    gap: 15px;
-    align-items: center;
-    padding: 15px 0;
+.cart-item{
+  display: grid;
+  grid-template-columns: 10px 70px 2fr 1fr 0.5fr 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 0;
 }
 
-.cart-headers {
-    font-weight: 600;
-    color: #5C4B5E; /* Dark color for headers */
-    border-bottom: 2px solid #5C4B5E;
+.cart-headers{
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 2px solid var(--muted);
 }
 
-/* Header Alignment */
-.cart-headers span:nth-child(1) { /* Empty align column */
-    grid-column: 1 / span 1; 
-}
-.cart-headers .header-image {
-    grid-column: 2 / span 1;
-}
-.cart-headers .header-product {
-    grid-column: 3 / span 1;
-}
-.cart-headers .header-price {
-    grid-column: 4 / span 1;
-    text-align: right;
-}
-.cart-headers .header-quantity {
-    grid-column: 5 / span 1;
-    text-align: center;
-}
-.cart-headers .header-total {
-    grid-column: 6 / span 1;
-    text-align: right;
-}
-
-
-/* ---------------------------------- */
-/* 3. Cart Item Styling and Alignment */
-/* ---------------------------------- */
-
-.cart-item {
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 14px;
-    padding-left: 10px; /* Align with header start */
+.cart-item{
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  padding-left: 10px;
 }
 
 /* Image */
-.cart-item img {
-    grid-column: 2 / span 1;
-    width: 100%;
-    max-width: 70px;
-    border-radius: 5px;
+.cart-item img{
+  grid-column: 2;
+  max-width: 70px;
+  border-radius: 6px;
 }
 
 /* Product Info */
-.cart-item .item-info {
-    grid-column: 3 / span 1;
-    display: flex;
-    flex-direction: column;
-}
-.cart-item .item-name {
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #333;
-}
-.item-note-display {
-    font-size: 12px;
-    color: #888;
-    margin-top: 5px;
+.item-info{
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Numeric Columns Alignment */
-.cart-item .item-price {
-    grid-column: 4 / span 1;
-    text-align: right;
-    font-weight: 500;
-    color: #555;
+.item-name{
+  font-weight: 600;
+  color: #333;
 }
 
-.cart-item .item-quantity {
-    grid-column: 5 / span 1;
-    text-align: center;
+.item-note-display{
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
 }
 
-.cart-item .item-total {
-    grid-column: 6 / span 1;
-    text-align: right;
-    font-weight: bold;
-    color: #5C4B5E;
+/* Price / Qty / Total */
+.item-price{
+  grid-column: 4;
+  text-align: right;
+  color: #555;
 }
 
+.item-quantity{
+  grid-column: 5;
+  text-align: center;
+}
 
-/* ---------------------------------- */
-/* 4. Hiding Useless/Removed Interactive Elements */
-/* ---------------------------------- */
+.item-total{
+  grid-column: 6;
+  text-align: right;
+  font-weight: bold;
+  color: var(--muted);
+}
 
-/* Ensure any old interactive element classes are completely hidden */
+/* Remove unused buttons */
 .remove-btn,
 .qty-minus,
 .qty-plus,
-.add-note {
-    display: none !important;
-}
-/* --- Order Summary Details (New Section) --- */
-.order-summary-details {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 20px;
+.add-note{
+  display: none !important;
 }
 
-.detail-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-right: 30px;
-    margin-right: 30px;
-    border-right: 1px solid var(--accent-2); /* Use variable */
-    flex: 1;
+/* ------------------------------ */
+/* Order Summary */
+/* ------------------------------ */
+.order-summary-details{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
 
-.address-group {
-    padding-right: 0;
-    margin-right: 0;
-    border-right: none;
-    flex: 1.5;
+.detail-group{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 30px;
+  margin-right: 30px;
+  border-right: 1px solid var(--accent-2);
 }
 
-.detail-label {
-    font-size: 14px;
-    color: var(--muted);
-    font-weight: 500;
+.address-group{
+  flex: 1.5;
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
 }
 
-.detail-value {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--muted); /* Use muted color for detail values */
+.detail-label{
+  font-size: 14px;
+  color: var(--muted);
 }
 
-.summary-line {
-    border: 0;
-    border-top: 1px solid var(--accent-2); /* Use variable */
-    margin: 20px 0 30px 0;
-}
-.totals-wrapper {
-    /* Container to constrain the totals block's width */
-    width: 100%;
-    max-width: 300px; /* Constrain the totals content */
+.detail-value{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
 }
 
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 10px;
+.summary-line{
+  border: none;
+  border-top: 1px solid var(--accent-2);
+  margin: 20px 0 30px;
 }
 
-.total-row.grand-total {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px dashed var(--accent-2); /* A nice touch for final total separation */
+/* Totals */
+.totals-wrapper{
+  max-width: 300px;
+  width: 100%;
 }
 
-.total-row .label {
-    font-size: 16px;
-    color: var(--muted);
+.total-row{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.total-row .amount {
-    font-weight: 600;
-    font-size: 16px;
-    color: #333;
+.grand-total{
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed var(--accent-2);
 }
 
-.total-row.grand-total .label,
-.total-row.grand-total .amount {
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--muted);
+.total-row .label{
+  color: var(--muted);
 }
 
-.action-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-    width: 100%;
-    justify-content: flex-end; /* Align buttons to the right */
+.total-row .amount{
+  font-weight: 600;
+}
+
+.grand-total .label,
+.grand-total .amount{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Buttons */
+.action-buttons{
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.continue-shopping-btn{
+  background: var(--accent-2);
+  color: var(--muted);
+}
+
+.place-order-btn{
+  background: var(--accent);
+  color: var(--white);
 }
 
 .continue-shopping-btn,
-.place-order-btn {
-    padding: 12px 25px;
+.place-order-btn{
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ------------------------------ */
+/* Responsive */
+/* ------------------------------ */
+
+/* Tablet & Mobile */
+@media (max-width: 768px){
+  .order-summary-details{
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .detail-group,
+  .address-group{
     border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s;
+    padding: 0 0 10px;
+    margin: 0;
+    border-bottom: 1px solid var(--accent-2);
+  }
+
+  .cart-headers,
+  .cart-item{
+    grid-template-columns: 80px 1.5fr 1fr 1fr;
+  }
+
+  .header-price,
+  .item-price{
+    display: none;
+  }
 }
 
-.continue-shopping-btn {
-    background-color: var(--accent-2);
-    color: var(--muted);
-}
+/* Small Mobile */
+@media (max-width: 480px){
+  .cart-headers,
+  .cart-item{
+    grid-template-columns: 60px 2fr 1fr;
+  }
 
-.place-order-btn {
-    /* **FIX:** Renaming this to a confirmation action like "Track Order" or "View Invoice" might be better */
-    background-color: var(--accent);
-    color: var(--white);
-}
+  .item-quantity{
+    display: none;
+  }
 
-/* New: Responsive Adjustments (optional but good practice) */
-@media (max-width: 768px) {
-    .order-summary-details {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .detail-group, .address-group {
-        border-right: none;
-        margin-right: 0;
-        padding-right: 0;
-        padding-bottom: 10px;
-        border-bottom: 1px solid var(--accent-2);
-    }
-    .cart-headers, .cart-item {
-        grid-template-columns: 80px 1.5fr 1fr 1fr; /* Simpler layout on mobile */
-    }
-    .header-price, .item-price { display: none; } /* Hide price column on small screens */
-    .header-product, .item-info { grid-column: 2 / span 1; }
-    .header-quantity, .item-quantity { grid-column: 3 / span 1; }
-    .header-total, .item-total { grid-column: 4 / span 1; }
+  .action-buttons{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .continue-shopping-btn,
+  .place-order-btn{
+    width: 100%;
+    max-width: 300px;
+  }
 }
